@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#faf9f6">
+<meta name="description" content="Contact Md. Abdul Alek — Inquire about web development, hosting, and AI solutions projects. Direct email: alek25860@gmail.com.">
+<title>Contact | Md. Abdul Alek — ALEK.DEV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+<header>
+  <nav class="wrap">
+    <a class="logo" href="index.html">
+      <img src="assets/alek-portrait.png" alt="Md. Abdul Alek" class="logo-avatar">
+      <span>ALEK<span>.</span>DEV</span>
+    </a>
+    <div class="navlinks" id="navlinks">
+      <a href="index.html">HOME</a>
+      <a href="services.html">SERVICES</a>
+      <a href="projects.html">PROJECTS</a>
+      <a href="about.html">ABOUT</a>
+      <a href="contact.html" class="active" aria-current="page">CONTACT</a>
+    </div>
+    <a class="nav-cta" href="contact.html">LET'S WORK TOGETHER ↗</a>
+    <button class="menu" id="menu" aria-label="Open navigation" aria-expanded="false"><i data-lucide="menu"></i></button>
+  </nav>
+</header>
+
+<main>
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="wrap">
+    <div class="eyebrow">START A CONVERSATION</div>
+    <h1 class="page-title">HAVE A PROJECT<br><span class="yellow">IN MIND?</span></h1>
+    <p class="page-subtitle">
+      Whether you need a new website built, domain and server infrastructure set up, or an application prototype, let's discuss your requirements.
+    </p>
+  </div>
+</section>
+
+<!-- CONTACT CHANNELS & FORM -->
+<section class="wrap section">
+  <div class="contact-channels-panel">
+    <div class="channels-head">VERIFIED DIRECT CHANNELS</div>
+    <div class="grid-3 channels-grid">
+      <div class="channel-card">
+        <div class="channel-icon">✉</div>
+        <div class="channel-info">
+          <strong><a href="mailto:alek25860@gmail.com" id="contactEmail">alek25860@gmail.com</a></strong>
+          <small>PRIMARY PROJECT INQUIRIES</small>
+        </div>
+        <button type="button" class="copy-btn" id="copyEmailBtn" title="Copy email address">Copy</button>
+      </div>
+
+      <div class="channel-card">
+        <div class="channel-icon">⌖</div>
+        <div class="channel-info">
+          <strong>Tongi, Gazipur</strong>
+          <small>Dhaka Division, Bangladesh</small>
+        </div>
+      </div>
+
+      <div class="channel-card">
+        <div class="channel-icon">↗</div>
+        <div class="channel-info">
+          <strong>Worldwide Remote</strong>
+          <small>OPEN TO GLOBAL CLIENTS</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- Official Social Media Profiles -->
+    <div style="margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+      <div>
+        <div style="font-size:10px;font-weight:800;color:#ffbd20;text-transform:uppercase;letter-spacing:1px">OFFICIAL SOCIAL MEDIA</div>
+        <div style="font-size:11px;color:#bbb">Connect directly with @mdabdulalek2</div>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <a href="https://www.facebook.com/mdabdulalek2" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.1);color:#fff;padding:8px 12px;border-radius:4px;font-size:11px;font-weight:700">
+          <i data-lucide="facebook" style="width:14px;height:14px"></i> Facebook
+        </a>
+        <a href="https://www.instagram.com/mdabdulalek2" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.1);color:#fff;padding:8px 12px;border-radius:4px;font-size:11px;font-weight:700">
+          <i data-lucide="instagram" style="width:14px;height:14px"></i> Instagram
+        </a>
+        <a href="https://www.youtube.com/@mdabdulalek2" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.1);color:#fff;padding:8px 12px;border-radius:4px;font-size:11px;font-weight:700">
+          <i data-lucide="youtube" style="width:14px;height:14px"></i> YouTube
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Form Container -->
+  <div class="form-wrapper">
+    <div class="eyebrow">PROJECT INQUIRY FORM</div>
+    <h2 class="section-title">TELL ME ABOUT YOUR PROJECT</h2>
+    <p class="form-note">
+      Fill in the details below. This static website does not silently store submissions in a database; clicking "Prepare Email Inquiry" prepares a message directly in your email client for full transparency.
+    </p>
+
+    <form id="inquiryForm" class="contact-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="clientName">Your Full Name *</label>
+          <input type="text" id="clientName" name="name" required maxlength="100" placeholder="e.g. John Doe">
+        </div>
+        <div class="form-group">
+          <label for="clientEmail">Your Email Address *</label>
+          <input type="email" id="clientEmail" name="email" required maxlength="254" placeholder="e.g. you@company.com">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="serviceCategory">Service Category *</label>
+        <select id="serviceCategory" name="service" required>
+          <option value="" disabled selected>Select service required</option>
+          <option value="A. Web Development & UI/UX (Business / Portfolio Site)">A. Web Development &amp; UI/UX (Business / Portfolio Site)</option>
+          <option value="B. Hosting & Infrastructure (Domain, DNS, SSL, cPanel)">B. Hosting &amp; Infrastructure (Domain, DNS, SSL, cPanel)</option>
+          <option value="C. AI & Digital Solutions (Prototypes, Prompt Workflows)">C. AI &amp; Digital Solutions (Prototypes, Prompt Workflows)</option>
+          <option value="Comprehensive Package (Web + Hosting + Setup)">Comprehensive Package (Web + Hosting + Setup)</option>
+          <option value="Other Custom Project">Other Custom Project</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="projectDetails">Project Scope &amp; Details *</label>
+        <textarea id="projectDetails" name="details" rows="5" required maxlength="5000" placeholder="Briefly describe what you're looking to build, any technical requirements, or deadlines..."></textarea>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="primary">PREPARE EMAIL INQUIRY ↗</button>
+        <button type="button" class="secondary" id="copyDraftBtn">Copy Formatted Draft</button>
+      </div>
+
+      <div id="formStatus" class="form-status-msg" role="status" aria-live="polite"></div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="footer-title">IDEAS. CRAFTED <span>VISUALLY.</span></div>
+  <div class="footer-sub">WEB DEVELOPMENT · HOSTING &amp; INFRASTRUCTURE · AI SOLUTIONS</div>
+  <div class="footer-copy">© <span data-year></span> Md. Abdul Alek. Web Developer &amp; Technologist · Tongi, Gazipur, Bangladesh</div>
+</footer>
+
+<script src="assets/script.js"></script>
+</body>
+</html>

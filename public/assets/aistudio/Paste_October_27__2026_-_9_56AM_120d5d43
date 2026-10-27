@@ -1,0 +1,1829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#07090e">
+  <meta name="description" content="Md. Abdul Alek — Computer Engineering Technologist, Full-Stack Web & App Developer, Server Administrator, and AI Solutions Architect.">
+  <meta name="author" content="Md. Abdul Alek">
+  <title>Md. Abdul Alek — Digital Engineering & AI Solutions</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            obsidian: '#07090E',
+            cyan: '#06B6D4',
+            amber: '#F59E0B'
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    :root {
+      --bg: #07090E;
+      --surface: rgba(17, 24, 39, .7);
+      --border: rgba(255, 255, 255, .085);
+      --cyan: #06B6D4;
+      --amber: #F59E0B;
+      --muted: #9299aa;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 100px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: #f5f7fb;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection {
+      color: #061016;
+      background: var(--cyan);
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    button, input, select, textarea { font: inherit; }
+
+    button, a { -webkit-tap-highlight-color: transparent; }
+
+    .mono {
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: -.035em;
+    }
+
+    .muted { color: var(--muted); }
+
+    .container-main {
+      width: min(1160px, calc(100% - 44px));
+      margin-inline: auto;
+    }
+
+    .grid-bg {
+      background-image:
+        linear-gradient(rgba(255,255,255,.023) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.023) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: linear-gradient(to bottom, black, transparent 90%);
+    }
+
+    .glass {
+      background: var(--surface);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border);
+    }
+
+    .glow {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(110px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .text-gradient {
+      background: linear-gradient(110deg, #f8fafc 10%, #67e8f9 65%, #06b6d4);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .amber-gradient {
+      background: linear-gradient(120deg, #fde68a, #f59e0b);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .section {
+      padding-block: 112px;
+      position: relative;
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: #67e8f9;
+      font: 500 11px 'JetBrains Mono', monospace;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .section-label::before {
+      content: "";
+      width: 22px;
+      height: 1px;
+      background: var(--cyan);
+    }
+
+    .section-title {
+      margin-top: 19px;
+      font-size: clamp(32px, 5vw, 51px);
+      font-weight: 800;
+      letter-spacing: -.065em;
+      line-height: 1.13;
+    }
+
+    .section-desc {
+      max-width: 610px;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.9;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      border-bottom: 1px solid transparent;
+      transition: background .25s, border-color .25s;
+    }
+
+    .navbar.scrolled {
+      background: rgba(7, 9, 14, .88);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-color: var(--border);
+    }
+
+    .nav-inner {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+      font-weight: 800;
+      letter-spacing: -.055em;
+      font-size: 20px;
+    }
+
+    .brand-mark {
+      width: 35px;
+      height: 35px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(6,182,212,.45);
+      border-radius: 10px;
+      color: var(--cyan);
+      background: rgba(6,182,212,.08);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 27px;
+    }
+
+    .nav-links a {
+      color: #a6adbb;
+      font-size: 12px;
+      font-weight: 600;
+      transition: color .2s;
+    }
+
+    .nav-links a:hover { color: white; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 48px;
+      padding: 0 20px;
+      border: 1px solid transparent;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      transition: transform .2s, box-shadow .2s, background .2s, border-color .2s;
+      cursor: pointer;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-primary {
+      background: var(--cyan);
+      color: #041116;
+      box-shadow: 0 0 28px rgba(6,182,212,.12);
+    }
+
+    .btn-primary:hover {
+      background: #67e8f9;
+      box-shadow: 0 0 35px rgba(6,182,212,.25);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,.025);
+      color: #f4f7fb;
+      border-color: var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,.06);
+      border-color: rgba(6,182,212,.4);
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: white;
+      background: var(--surface);
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero {
+      min-height: 780px;
+      padding-top: 158px;
+      padding-bottom: 75px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-layout {
+      display: grid;
+      grid-template-columns: 1.12fr .88fr;
+      align-items: center;
+      gap: 65px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.035);
+      padding: 9px 13px;
+      border-radius: 7px;
+      color: #c3cad5;
+      font: 10px 'JetBrains Mono', monospace;
+      line-height: 1.7;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      background: #4ade80;
+      border-radius: 50%;
+      box-shadow: 0 0 13px rgba(74,222,128,.7);
+      flex-shrink: 0;
+    }
+
+    .hero h1 {
+      margin-top: 29px;
+      font-size: clamp(43px, 5.5vw, 69px);
+      font-weight: 800;
+      line-height: 1.075;
+      letter-spacing: -.075em;
+    }
+
+    .hero-copy {
+      margin-top: 23px;
+      max-width: 585px;
+      font-size: 15px;
+      line-height: 1.95;
+      color: #a7afbf;
+    }
+
+    .hero-copy strong { color: white; }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 31px;
+    }
+
+    .hero-code {
+      position: relative;
+      min-width: 0;
+      border-radius: 17px;
+      padding: 23px;
+      overflow: hidden;
+      transform: rotate(1deg);
+      box-shadow: 0 30px 100px rgba(0,0,0,.3);
+    }
+
+    .hero-code::before {
+      content: "";
+      position: absolute;
+      width: 210px;
+      height: 210px;
+      border-radius: 50%;
+      right: -75px;
+      top: -100px;
+      background: rgba(6,182,212,.15);
+      filter: blur(65px);
+    }
+
+    .window-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 17px;
+      position: relative;
+    }
+
+    .window-dots { display: flex; gap: 6px; }
+
+    .window-dots span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #465064;
+    }
+
+    .window-dots span:first-child { background: #f87171; }
+    .window-dots span:nth-child(2) { background: #fbbf24; }
+    .window-dots span:nth-child(3) { background: #4ade80; }
+
+    .window-file {
+      color: #a8b0c0;
+      font: 10px 'JetBrains Mono', monospace;
+    }
+
+    .code-content {
+      position: relative;
+      padding-top: 19px;
+      font: 11px/2.25 'JetBrains Mono', monospace;
+      overflow-x: auto;
+    }
+
+    .code-line {
+      display: grid;
+      grid-template-columns: 25px minmax(0,1fr);
+      gap: 8px;
+      white-space: pre;
+    }
+
+    .line-number { color: #515c70; user-select: none; }
+    .syntax-purple { color: #c4b5fd; }
+    .syntax-cyan { color: #67e8f9; }
+    .syntax-green { color: #86efac; }
+    .syntax-amber { color: #fcd34d; }
+    .syntax-muted { color: #7e899d; }
+
+    .code-bottom {
+      margin-top: 20px;
+      padding: 15px;
+      border: 1px solid var(--border);
+      background: rgba(0,0,0,.18);
+      border-radius: 10px;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .code-bottom strong {
+      display: block;
+      font-size: 12px;
+      margin-top: 5px;
+    }
+
+    .code-bottom small {
+      color: #8c96a9;
+      font: 9px 'JetBrains Mono', monospace;
+    }
+
+    .terminal-status {
+      color: #4ade80;
+      font: 10px 'JetBrains Mono', monospace;
+    }
+
+    .floating-chip {
+      position: absolute;
+      right: -18px;
+      bottom: -26px;
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      padding: 13px 16px;
+      border-radius: 12px;
+      font-size: 11px;
+      box-shadow: 0 20px 45px rgba(0,0,0,.35);
+      animation: float 5s ease-in-out infinite;
+    }
+
+    .floating-chip i {
+      color: #4ade80;
+      width: 20px;
+    }
+
+    .floating-chip strong { display: block; font-size: 12px; }
+    .floating-chip small { display: block; margin-top: 3px; color: var(--muted); }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: 12px;
+      margin-top: 67px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .stat-card {
+      padding: 19px 17px;
+      border-radius: 11px;
+      min-width: 0;
+    }
+
+    .stat-number {
+      font-size: clamp(19px, 2.3vw, 27px);
+      font-weight: 800;
+      letter-spacing: -.06em;
+      overflow-wrap: anywhere;
+    }
+
+    .stat-label {
+      margin-top: 9px;
+      color: #929bad;
+      font-size: 10px;
+      line-height: 1.7;
+    }
+
+    .capability-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 16px;
+      margin-top: 49px;
+    }
+
+    .capability-card {
+      position: relative;
+      padding: 28px;
+      border-radius: 14px;
+      overflow: hidden;
+      transition: transform .25s, border-color .25s, box-shadow .25s;
+    }
+
+    .capability-card::after {
+      content: "";
+      position: absolute;
+      top: -70px;
+      right: -70px;
+      width: 160px;
+      height: 160px;
+      background: rgba(6,182,212,.07);
+      filter: blur(55px);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .capability-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(6,182,212,.38);
+      box-shadow: 0 20px 65px rgba(0,0,0,.2);
+    }
+
+    .icon-box {
+      width: 49px;
+      height: 49px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      color: #67e8f9;
+      background: rgba(6,182,212,.09);
+      border: 1px solid rgba(6,182,212,.17);
+    }
+
+    .capability-card h3 {
+      margin-top: 23px;
+      font-size: 19px;
+      font-weight: 700;
+      letter-spacing: -.045em;
+    }
+
+    .capability-card p {
+      margin-top: 13px;
+      font-size: 13px;
+      line-height: 1.9;
+      color: #9da6b6;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 21px;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 7px 9px;
+      border-radius: 5px;
+      background: rgba(255,255,255,.035);
+      border: 1px solid rgba(255,255,255,.065);
+      color: #aab4c6;
+      font: 9px 'JetBrains Mono', monospace;
+    }
+
+    .projects-section { background: #090c13; }
+
+    .project-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 34px;
+    }
+
+    .filter-btn {
+      padding: 10px 14px;
+      border-radius: 7px;
+      background: transparent;
+      border: 1px solid var(--border);
+      color: #9da6b6;
+      cursor: pointer;
+      font-size: 11px;
+      font-weight: 600;
+      transition: .2s;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      color: #67e8f9;
+      background: rgba(6,182,212,.08);
+      border-color: rgba(6,182,212,.4);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 17px;
+      margin-top: 28px;
+    }
+
+    .project-card {
+      min-width: 0;
+      overflow: hidden;
+      border-radius: 13px;
+      transition: transform .25s, border-color .25s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(6,182,212,.4);
+    }
+
+    .project-card[hidden] { display: none; }
+
+    .project-image {
+      position: relative;
+      aspect-ratio: 1.45;
+      overflow: hidden;
+      background: #121926;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .5s, opacity .3s;
+      opacity: .83;
+    }
+
+    .project-card:hover .project-image img {
+      transform: scale(1.06);
+      opacity: 1;
+    }
+
+    .project-number {
+      position: absolute;
+      left: 13px;
+      top: 13px;
+      background: rgba(7,9,14,.82);
+      border: 1px solid rgba(255,255,255,.12);
+      padding: 6px 8px;
+      border-radius: 5px;
+      font: 9px 'JetBrains Mono', monospace;
+      color: #d0d6e2;
+    }
+
+    .project-body { padding: 19px; }
+
+    .project-category {
+      color: #67e8f9;
+      font: 9px 'JetBrains Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+    }
+
+    .project-body h3 {
+      margin-top: 11px;
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.6;
+      letter-spacing: -.025em;
+    }
+
+    .project-body p {
+      margin-top: 10px;
+      color: #98a2b3;
+      font-size: 11px;
+      line-height: 1.9;
+    }
+
+    .project-foot {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      padding-top: 15px;
+      margin-top: 16px;
+      border-top: 1px solid var(--border);
+      color: #8e98aa;
+      font: 9px 'JetBrains Mono', monospace;
+    }
+
+    .project-foot i { width: 15px; color: var(--cyan); }
+
+    .pipeline {
+      margin-top: 54px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: 13px;
+    }
+
+    .pipeline-card {
+      padding: 23px 19px;
+      border-radius: 12px;
+      position: relative;
+    }
+
+    .pipeline-card .step {
+      font: 10px 'JetBrains Mono', monospace;
+      color: var(--cyan);
+    }
+
+    .pipeline-card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.55;
+      margin-top: 22px;
+    }
+
+    .pipeline-card p {
+      color: #98a2b3;
+      font-size: 11px;
+      line-height: 1.9;
+      margin-top: 13px;
+    }
+
+    .pipeline-card .step-icon {
+      margin-top: 23px;
+      color: #68758a;
+      width: 23px;
+    }
+
+    .pipeline-card:hover .step-icon { color: var(--cyan); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 58px;
+      align-items: start;
+      margin-top: 48px;
+    }
+
+    .about-copy {
+      color: #a2abba;
+      font-size: 13px;
+      line-height: 2.05;
+    }
+
+    .about-copy strong { color: #f5f7fb; }
+
+    .about-highlight {
+      border-left: 2px solid var(--cyan);
+      padding: 17px 20px;
+      margin-top: 25px;
+      background: rgba(6,182,212,.045);
+      color: #c6cfdb;
+      font-size: 12px;
+      line-height: 1.9;
+    }
+
+    .credential-panel {
+      padding: 25px;
+      border-radius: 14px;
+    }
+
+    .panel-heading {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .panel-heading i { color: var(--cyan); width: 18px; }
+
+    .credential-item {
+      display: grid;
+      grid-template-columns: 36px minmax(0,1fr);
+      gap: 13px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .credential-item:last-child { border-bottom: 0; }
+
+    .credential-icon {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      color: #67e8f9;
+      background: rgba(6,182,212,.08);
+      border-radius: 8px;
+    }
+
+    .credential-icon i { width: 16px; }
+
+    .credential-item h4 {
+      font-size: 12px;
+      line-height: 1.7;
+      font-weight: 700;
+    }
+
+    .credential-item p {
+      margin-top: 5px;
+      color: #929bad;
+      font-size: 10px;
+      line-height: 1.8;
+    }
+
+    .stack-title {
+      margin-top: 28px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .stack-tags { margin-top: 15px; }
+
+    .contact-section { background: #090c13; }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 50px;
+      margin-top: 46px;
+      align-items: start;
+    }
+
+    .contact-copy {
+      margin-top: 18px;
+      color: #9ba5b6;
+      font-size: 13px;
+      line-height: 1.9;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 27px;
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 16px;
+      border-radius: 10px;
+    }
+
+    .contact-item .icon-box {
+      width: 41px;
+      height: 41px;
+      flex-shrink: 0;
+    }
+
+    .contact-item small {
+      display: block;
+      color: #8d97aa;
+      font: 9px 'JetBrains Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .contact-item strong {
+      display: block;
+      font-size: 12px;
+      line-height: 1.7;
+      margin-top: 5px;
+      overflow-wrap: anywhere;
+    }
+
+    .contact-item p {
+      margin-top: 4px;
+      color: #929bad;
+      font-size: 10px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 9px;
+      margin-top: 20px;
+    }
+
+    .social-link {
+      width: 41px;
+      height: 41px;
+      border-radius: 9px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--border);
+      color: #b4bdca;
+      transition: .2s;
+    }
+
+    .social-link:hover {
+      color: var(--cyan);
+      border-color: rgba(6,182,212,.45);
+      background: rgba(6,182,212,.07);
+    }
+
+    .inquiry-form {
+      border-radius: 15px;
+      padding: 29px;
+    }
+
+    .form-title {
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -.035em;
+    }
+
+    .form-subtitle {
+      color: #919bad;
+      font-size: 11px;
+      line-height: 1.8;
+      margin-top: 8px;
+      margin-bottom: 23px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 17px;
+    }
+
+    .field { min-width: 0; }
+    .field.full { grid-column: 1 / -1; }
+
+    .field label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 11px;
+      color: #c4ccda;
+      font-weight: 600;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      min-width: 0;
+      padding: 12px 13px;
+      border-radius: 8px;
+      color: #f5f7fb;
+      background: rgba(255,255,255,.035);
+      border: 1px solid rgba(255,255,255,.1);
+      outline: none;
+      font-size: 12px;
+      transition: border-color .2s, box-shadow .2s;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: rgba(6,182,212,.7);
+      box-shadow: 0 0 0 3px rgba(6,182,212,.07);
+    }
+
+    .field select { color-scheme: dark; }
+    .field textarea { min-height: 118px; resize: vertical; line-height: 1.8; }
+    .field input::placeholder, .field textarea::placeholder { color: #667084; }
+
+    .form-footer {
+      margin-top: 19px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .form-note {
+      color: #818c9f;
+      font-size: 10px;
+      line-height: 1.7;
+    }
+
+    .form-status {
+      display: none;
+      margin-top: 16px;
+      border: 1px solid rgba(74,222,128,.25);
+      background: rgba(74,222,128,.07);
+      color: #86efac;
+      border-radius: 8px;
+      padding: 13px;
+      font-size: 11px;
+      line-height: 1.8;
+    }
+
+    .form-status.visible { display: block; }
+
+    .footer {
+      padding-block: 26px;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 17px;
+    }
+
+    .footer-copy {
+      color: #818b9e;
+      font-size: 10px;
+      line-height: 1.8;
+    }
+
+    .back-top {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #c2cbd8;
+    }
+
+    .back-top:hover { color: var(--cyan); }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+
+    .reveal.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+    }
+
+    @media (max-width: 1024px) {
+      .nav-links { gap: 15px; }
+      .hero-layout { gap: 35px; }
+      .hero h1 { font-size: clamp(43px, 6vw, 62px); }
+      .pipeline { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .projects-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .about-grid { gap: 35px; }
+      .contact-grid { gap: 30px; }
+    }
+
+    @media (max-width: 760px) {
+      .container-main { width: min(100% - 34px, 580px); }
+      .nav-inner { min-height: 69px; }
+      .menu-toggle { display: inline-flex; }
+      .nav-cta { display: none; }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 68px;
+        left: 0;
+        right: 0;
+        padding: 17px;
+        background: rgba(7,9,14,.97);
+        backdrop-filter: blur(18px);
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+      }
+
+      .nav-links.open { display: flex; }
+
+      .nav-links a {
+        padding: 14px 5px;
+        border-bottom: 1px solid rgba(255,255,255,.055);
+        font-size: 13px;
+      }
+
+      .nav-links a:last-child { border-bottom: 0; }
+
+      .hero {
+        padding-top: 120px;
+        padding-bottom: 55px;
+        min-height: auto;
+      }
+
+      .hero-layout { grid-template-columns: 1fr; gap: 48px; }
+      .hero h1 { font-size: clamp(42px, 11vw, 63px); }
+      .hero-copy { font-size: 13px; }
+      .hero-code { max-width: 500px; transform: none; }
+      .floating-chip { right: 6px; bottom: -20px; }
+      .hero-stats { grid-template-columns: repeat(2, minmax(0,1fr)); margin-top: 46px; gap: 10px; }
+      .stat-card { padding: 16px; }
+      .stat-number { font-size: 23px; }
+      .section { padding-block: 76px; }
+      .capability-grid { grid-template-columns: 1fr; margin-top: 35px; }
+      .capability-card { padding: 23px; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .project-image { aspect-ratio: 1.65; }
+      .pipeline { gap: 11px; }
+      .pipeline-card { padding: 19px 15px; }
+      .pipeline-card h3 { font-size: 13px; }
+      .about-grid { grid-template-columns: 1fr; gap: 28px; margin-top: 34px; }
+      .contact-grid { grid-template-columns: 1fr; gap: 30px; margin-top: 32px; }
+      .inquiry-form { padding: 21px; }
+    }
+
+    @media (max-width: 390px) {
+      .container-main { width: calc(100% - 28px); }
+      .brand { font-size: 18px; }
+      .status-badge { font-size: 8px; }
+      .hero h1 { font-size: 39px; }
+      .hero-actions .btn { width: 100%; }
+      .pipeline { grid-template-columns: 1fr; }
+      .form-grid { grid-template-columns: 1fr; }
+      .field.full { grid-column: auto; }
+      .form-footer { align-items: stretch; }
+      .form-footer .btn { width: 100%; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="navbar" id="navbar">
+    <nav class="container-main nav-inner" aria-label="Main navigation">
+      <a href="#home" class="brand" aria-label="Alek Dev home">
+        <span class="brand-mark"><i data-lucide="terminal-square" width="20"></i></span>
+        <span>ALEK<span style="color:#06b6d4">.</span>DEV</span>
+      </a>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#capabilities">Capabilities</a>
+        <a href="#projects">Featured Work</a>
+        <a href="#pipeline">Pipeline</a>
+        <a href="#credentials">Credentials</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <a href="#contact" class="btn btn-primary nav-cta">
+        Hire Me <i data-lucide="arrow-up-right" width="16"></i>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navLinks">
+        <i data-lucide="menu" id="menuIcon" width="21"></i>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="glow" style="width:400px;height:400px;background:rgba(6,182,212,.12);top:50px;left:-180px"></div>
+      <div class="glow" style="width:280px;height:280px;background:rgba(245,158,11,.07);top:230px;right:3%"></div>
+      <div class="absolute inset-0 grid-bg pointer-events-none"></div>
+
+      <div class="container-main" style="position:relative;z-index:1">
+        <div class="hero-layout">
+          <div class="reveal">
+            <div class="status-badge">
+              <span class="status-dot"></span>
+              <span>COMPUTER ENGINEERING · WEB & APP DEV<br class="hidden"> · CLOUD HOSTING · COMMERCIAL AI</span>
+            </div>
+
+            <h1>
+              Building Scalable Websites, Custom Apps &amp;
+              <span class="text-gradient">AI-Powered</span>
+              Digital Assets.
+            </h1>
+
+            <p class="hero-copy">
+              I'm <strong>Md. Abdul Alek</strong> — a Computer Engineering graduate (CGPA 3.68) and Full-Stack Digital Technologist. I take digital products from concept to live deployment, combining UI/UX, web and mobile app development, domain/server architecture, and AI-assisted workflows.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#projects" class="btn btn-primary">
+                Explore Technical Work <i data-lucide="arrow-right" width="16"></i>
+              </a>
+              <a href="#contact" class="btn btn-secondary">
+                Request a Quote <i data-lucide="message-square" width="16"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="reveal" style="transition-delay:.13s">
+            <div class="hero-code glass">
+              <div class="window-head">
+                <div class="window-dots"><span></span><span></span><span></span></div>
+                <span class="window-file">alek.config.js</span>
+                <i data-lucide="code-2" width="16" style="color:#06b6d4"></i>
+              </div>
+
+              <div class="code-content" aria-label="Illustrative JavaScript code">
+                <div class="code-line"><span class="line-number">01</span><span><span class="syntax-purple">const</span> <span class="syntax-cyan">developer</span> = {</span></div>
+                <div class="code-line"><span class="line-number">02</span><span>  name: <span class="syntax-green">'Md. Abdul Alek'</span>,</span></div>
+                <div class="code-line"><span class="line-number">03</span><span>  role: <span class="syntax-green">'Digital Technologist'</span>,</span></div>
+                <div class="code-line"><span class="line-number">04</span><span>  skills: [</span></div>
+                <div class="code-line"><span class="line-number">05</span><span>    <span class="syntax-green">'Full-Stack Development'</span>,</span></div>
+                <div class="code-line"><span class="line-number">06</span><span>    <span class="syntax-green">'Cloud & Infrastructure'</span>,</span></div>
+                <div class="code-line"><span class="line-number">07</span><span>    <span class="syntax-green">'AI Solutions'</span></span></div>
+                <div class="code-line"><span class="line-number">08</span><span>  ],</span></div>
+                <div class="code-line"><span class="line-number">09</span><span>  approach: <span class="syntax-amber">'End-to-End'</span>,</span></div>
+                <div class="code-line"><span class="line-number">10</span><span>  build: <span class="syntax-purple">async</span> () =&gt; {</span></div>
+                <div class="code-line"><span class="line-number">11</span><span>    <span class="syntax-purple">return</span> <span class="syntax-cyan">digitalSolutions</span>;</span></div>
+                <div class="code-line"><span class="line-number">12</span><span>  }</span></div>
+                <div class="code-line"><span class="line-number">13</span><span>};</span></div>
+              </div>
+
+              <div class="code-bottom">
+                <div>
+                  <small>DELIVERY MODEL</small>
+                  <strong>Concept → Code → Cloud</strong>
+                </div>
+                <span class="terminal-status">● READY</span>
+              </div>
+            </div>
+
+            <div class="floating-chip glass">
+              <i data-lucide="shield-check"></i>
+              <div>
+                <strong>Built with precision</strong>
+                <small>Security · Performance · Scalability</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-card glass reveal">
+            <div class="stat-number text-gradient">3.68<span class="muted" style="font-size:13px"> / 4.00</span></div>
+            <div class="stat-label">Diploma in Computer Engineering CGPA</div>
+          </div>
+          <div class="stat-card glass reveal" style="transition-delay:.06s">
+            <div class="stat-number">End-to-End</div>
+            <div class="stat-label">Code, cloud hosting &amp; AI workflows</div>
+          </div>
+          <div class="stat-card glass reveal" style="transition-delay:.12s">
+            <div class="stat-number">99.9<span style="font-size:15px;color:#67e8f9">%</span></div>
+            <div class="stat-label">Infrastructure uptime target and security focus — not a verified service-level guarantee</div>
+          </div>
+          <div class="stat-card glass reveal" style="transition-delay:.18s">
+            <div class="stat-number"><span class="text-gradient">4+</span> Pillars</div>
+            <div class="stat-label">Web, apps, infrastructure &amp; commercial AI</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAPABILITIES -->
+    <section class="section" id="capabilities">
+      <div class="container-main">
+        <div class="reveal">
+          <span class="section-label">What I do</span>
+          <h2 class="section-title">Core Technical <span class="text-gradient">Capabilities</span></h2>
+          <p class="section-desc">
+            Full-lifecycle digital execution — from clean code and server configuration to commercial visual assets. One technical partner, multiple capabilities.
+          </p>
+        </div>
+
+        <div class="capability-grid">
+          <article class="capability-card glass reveal">
+            <div class="icon-box"><i data-lucide="code-2" width="23"></i></div>
+            <h3>Web Development &amp; Custom UI/UX</h3>
+            <p>Building fast, responsive websites — from corporate landing pages and personal portfolios to dynamic business platforms optimized for usability, SEO, accessibility, and mobile performance.</p>
+            <div class="tags">
+              <span class="tag">HTML5 / CSS3</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Responsive UI</span>
+              <span class="tag">SEO Optimization</span>
+            </div>
+          </article>
+
+          <article class="capability-card glass reveal" style="transition-delay:.06s">
+            <div class="icon-box"><i data-lucide="smartphone" width="23"></i></div>
+            <h3>Mobile &amp; Web Application Development</h3>
+            <p>Designing user-centric application prototypes and functional experiences with clean logic, thoughtful state management, cross-device compatibility, and AI-assisted development workflows.</p>
+            <div class="tags">
+              <span class="tag">App Prototyping</span>
+              <span class="tag">Clean Logic</span>
+              <span class="tag">Cross-Device</span>
+              <span class="tag">AI-Assisted Dev</span>
+            </div>
+          </article>
+
+          <article class="capability-card glass reveal">
+            <div class="icon-box"><i data-lucide="server" width="23"></i></div>
+            <h3>Domain, Hosting &amp; Server Administration</h3>
+            <p>Practical infrastructure management covering domain DNS configuration, SSL/TLS, cPanel and cloud hosting setup, website migration, database backups, and performance troubleshooting.</p>
+            <div class="tags">
+              <span class="tag">DNS Management</span>
+              <span class="tag">cPanel / Cloud</span>
+              <span class="tag">SSL Security</span>
+              <span class="tag">Site Migration</span>
+            </div>
+          </article>
+
+          <article class="capability-card glass reveal" style="transition-delay:.06s">
+            <div class="icon-box"><i data-lucide="sparkles" width="23"></i></div>
+            <h3>Commercial AI Workflows &amp; Stock Assets</h3>
+            <p>Creating high-resolution visual concepts, architectural visualizations, brand media, and repeatable AI-assisted media workflows for stock marketplaces and business campaigns, subject to platform licensing rules.</p>
+            <div class="tags">
+              <span class="tag">Commercial Stock AI</span>
+              <span class="tag">Prompt Architecture</span>
+              <span class="tag">Visual Consistency</span>
+              <span class="tag">AI Audio</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section projects-section" id="projects">
+      <div class="container-main">
+        <div class="reveal">
+          <span class="section-label">Selected work</span>
+          <h2 class="section-title">Featured Technical Projects <span class="text-gradient">&amp; Assets</span></h2>
+          <p class="section-desc">
+            A showcase of the types of solutions I develop across web infrastructure, applications, and AI-assisted digital media.
+          </p>
+        </div>
+
+        <div class="project-filters reveal" role="group" aria-label="Filter projects">
+          <button class="filter-btn active" data-filter="all" aria-pressed="true">All Projects</button>
+          <button class="filter-btn" data-filter="web" aria-pressed="false">Web &amp; Hosting</button>
+          <button class="filter-btn" data-filter="app" aria-pressed="false">App Development</button>
+          <button class="filter-btn" data-filter="ai" aria-pressed="false">Commercial AI Stock</button>
+        </div>
+
+        <div class="projects-grid" id="projectsGrid">
+          <article class="project-card glass reveal" data-category="web">
+            <div class="project-image">
+              <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Global digital network representing cloud infrastructure" loading="lazy">
+              <span class="project-number">PROJECT / 01</span>
+            </div>
+            <div class="project-body">
+              <div class="project-category">Web &amp; Hosting</div>
+              <h3>Enterprise Domain &amp; Cloud Deployment Suite</h3>
+              <p>A deployment solution concept covering custom DNS routing, SSL configuration, hosting optimization, and website performance monitoring.</p>
+              <div class="tags"><span class="tag">DNS</span><span class="tag">SSL / TLS</span><span class="tag">Cloud Hosting</span></div>
+              <div class="project-foot"><span>INFRASTRUCTURE</span><i data-lucide="arrow-up-right"></i></div>
+            </div>
+          </article>
+
+          <article class="project-card glass reveal" data-category="web" style="transition-delay:.05s">
+            <div class="project-image">
+              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Analytics dashboard and digital business interface" loading="lazy">
+              <span class="project-number">PROJECT / 02</span>
+            </div>
+            <div class="project-body">
+              <div class="project-category">Web &amp; Hosting</div>
+              <h3>Modern Corporate &amp; Portfolio Web Architecture</h3>
+              <p>A responsive website concept combining clear visual hierarchy, reusable interface patterns, and conversion-focused user journeys.</p>
+              <div class="tags"><span class="tag">UI / UX</span><span class="tag">JavaScript</span><span class="tag">SEO</span></div>
+              <div class="project-foot"><span>WEB EXPERIENCE</span><i data-lucide="arrow-up-right"></i></div>
+            </div>
+          </article>
+
+          <article class="project-card glass reveal" data-category="app" style="transition-delay:.1s">
+            <div class="project-image">
+              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Data-driven business application dashboard" loading="lazy">
+              <span class="project-number">PROJECT / 03</span>
+            </div>
+            <div class="project-body">
+              <div class="project-category">App Development</div>
+              <h3>Smart Utility &amp; Management Application</h3>
+              <p>An application concept for organizing data, managing workflows, and presenting useful information through an intuitive interface.</p>
+              <div class="tags"><span class="tag">State Management</span><span class="tag">Workflow Logic</span></div>
+              <div class="project-foot"><span>APPLICATION DESIGN</span><i data-lucide="arrow-up-right"></i></div>
+            </div>
+          </article>
+
+          <article class="project-card glass reveal" data-category="app">
+            <div class="project-image">
+              <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Smartphone displaying a mobile application" loading="lazy">
+              <span class="project-number">PROJECT / 04</span>
+            </div>
+            <div class="project-body">
+              <div class="project-category">App Development</div>
+              <h3>Educational &amp; Productivity Mobile App</h3>
+              <p>A mobile-first application concept designed around accessible navigation, focused interactions, and a lightweight user experience.</p>
+              <div class="tags"><span class="tag">Mobile UI</span><span class="tag">Prototyping</span><span class="tag">UX Design</span></div>
+              <div class="project-foot"><span>MOBILE EXPERIENCE</span><i data-lucide="arrow-up-right"></i></div>
+            </div>
+          </article>
+
+          <article class="project-card glass reveal" data-category="ai">
+            <div class="project-image">
+              <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Contemporary architectural design and structural geometry" loading="lazy">
+              <span class="project-number">PROJECT / 05</span>
+            </div>
+            <div class="project-body">
+              <div class="project-category">Commercial AI Stock</div>
+              <h3>Architectural &amp; 3D Visual Asset Library</h3>
+              <p>A visual production concept for photorealistic architectural imagery, commercial design assets, and consistent creative collections.</p>
+              <div class="tags"><span class="tag">AI Imagery</span><span class="tag">Architecture</span><span class="tag">Art Direction</span></div>
+              <div class="project-foot"><span>VISUAL PRODUCTION</span><i data-lucide="arrow-up-right"></i></div>
+            </div>
+          </article>
+
+          <article class="project-card glass reveal" data-category="ai">
+            <div class="project-image">
+              <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Abstract artificial intelligence neural network visualization" loading="lazy">
+              <span class="project-number">PROJECT / 06</span>
+            </div>
+            <div class="project-body">
+              <div class="project-category">Commercial AI Stock</div>
+              <h3>AI Brand &amp; Media Workflow System</h3>
+              <p>A creative pipeline concept connecting consistent visual identities, AI-generated media, and voice workflows for digital content production.</p>
+              <div class="tags"><span class="tag">Prompt Design</span><span class="tag">AI Studio</span><span class="tag">Media Workflow</span></div>
+              <div class="project-foot"><span>AI WORKFLOWS</span><i data-lucide="arrow-up-right"></i></div>
+            </div>
+          </article>
+        </div>
+
+        <p class="muted mono" style="font-size:10px;line-height:1.9;margin-top:25px">
+          NOTE: Project cards currently illustrate portfolio concepts. Replace them with verified project screenshots, live URLs, and actual results before publishing them as completed client work.
+        </p>
+      </div>
+    </section>
+
+    <!-- PIPELINE -->
+    <section class="section" id="pipeline">
+      <div class="container-main">
+        <div class="reveal">
+          <span class="section-label">How I work</span>
+          <h2 class="section-title">The Engineering Advantage:<br><span class="text-gradient">4-Stage Delivery</span></h2>
+          <p class="section-desc">
+            A structured delivery process that brings design, development, AI-assisted media, and infrastructure together under one technical workflow.
+          </p>
+        </div>
+
+        <div class="pipeline">
+          <article class="pipeline-card glass reveal">
+            <span class="step">STEP 01 / PLAN</span>
+            <h3>Architecture &amp; UI Prototyping</h3>
+            <p>Define requirements, user journeys, system structure, database needs, and clear interface wireframes before development begins.</p>
+            <i data-lucide="layers" class="step-icon"></i>
+          </article>
+
+          <article class="pipeline-card glass reveal" style="transition-delay:.06s">
+            <span class="step">STEP 02 / CREATE</span>
+            <h3>AI Visual &amp; Commercial Assets</h3>
+            <p>Develop tailored visual concepts, graphics, and brand media while respecting relevant licensing, disclosure, and marketplace requirements.</p>
+            <i data-lucide="wand-sparkles" class="step-icon"></i>
+          </article>
+
+          <article class="pipeline-card glass reveal" style="transition-delay:.12s">
+            <span class="step">STEP 03 / BUILD</span>
+            <h3>Clean Code &amp; Application Build</h3>
+            <p>Build responsive front-end experiences, implement functional application logic, and test the result across supported devices.</p>
+            <i data-lucide="code-2" class="step-icon"></i>
+          </article>
+
+          <article class="pipeline-card glass reveal" style="transition-delay:.18s">
+            <span class="step">STEP 04 / DEPLOY</span>
+            <h3>Domain, Hosting &amp; Security</h3>
+            <p>Configure domains, DNS, SSL certificates, server settings, backups, and performance improvements for reliable deployment.</p>
+            <i data-lucide="shield-check" class="step-icon"></i>
+          </article>
+        </div>
+
+        <div class="glass reveal" style="padding:24px;border-radius:12px;margin-top:22px;display:flex;align-items:flex-start;gap:15px">
+          <div class="icon-box" style="flex-shrink:0"><i data-lucide="workflow" width="21"></i></div>
+          <div>
+            <h3 style="font-size:14px;font-weight:700">One coordinated technical workflow</h3>
+            <p class="muted" style="font-size:12px;line-height:1.9;margin-top:8px">
+              Instead of coordinating separate designers, developers, and hosting technicians, clients can work with one technical partner for a more cohesive delivery process. The scope and timeline are agreed upon for each project.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT & CREDENTIALS -->
+    <section class="section" id="credentials" style="background:#090c13">
+      <div class="container-main">
+        <div class="reveal">
+          <span class="section-label">About the engineer</span>
+          <h2 class="section-title">Engineering Mindset.<br><span class="text-gradient">End-to-End Execution.</span></h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="reveal">
+            <p class="about-copy">
+              With a <strong>Diploma in Computer Engineering (CGPA 3.68 / 4.00)</strong> and specialized training in <strong>Advanced AI Workflows</strong> through the Department of Youth Development, I approach digital projects with an engineer's mindset.
+            </p>
+
+            <p class="about-copy" style="margin-top:17px">
+              Many developers focus primarily on code, while many designers concentrate on visuals. My approach is to bring those disciplines together: create AI-assisted visual assets, build websites and application interfaces, configure domains and hosting, and help maintain the underlying technical infrastructure.
+            </p>
+
+            <p class="about-copy" style="margin-top:17px">
+              From an initial idea to a deployed digital product, I focus on practical problem-solving, clear communication, maintainable implementation, and a user experience that serves a real purpose.
+            </p>
+
+            <div class="about-highlight">
+              <span class="mono" style="color:#67e8f9;font-size:10px">MY PRINCIPLE</span>
+              <p style="margin-top:8px">Understand the problem. Engineer the solution. Deploy it thoughtfully. Keep improving.</p>
+            </div>
+
+            <a href="#contact" class="btn btn-secondary" style="margin-top:24px">
+              Discuss Your Project <i data-lucide="arrow-up-right" width="15"></i>
+            </a>
+          </div>
+
+          <div class="credential-panel glass reveal" style="transition-delay:.1s">
+            <div class="panel-heading">
+              <i data-lucide="graduation-cap"></i>
+              Education &amp; Credentials
+            </div>
+
+            <div class="credential-item">
+              <div class="credential-icon"><i data-lucide="award"></i></div>
+              <div>
+                <h4>Diploma in Engineering — Computer Technology</h4>
+                <p>Academic achievement · CGPA: 3.68 / 4.00</p>
+              </div>
+            </div>
+
+            <div class="credential-item">
+              <div class="credential-icon"><i data-lucide="brain-circuit"></i></div>
+              <div>
+                <h4>Advanced AI &amp; Digital Workflow Training</h4>
+                <p>Department of Youth Development · Tongi, Gazipur · 2026</p>
+              </div>
+            </div>
+
+            <div class="credential-item">
+              <div class="credential-icon"><i data-lucide="monitor-cog"></i></div>
+              <div>
+                <h4>Former Institutional IT Administrator</h4>
+                <p>Systems administration, hardware, and network operations</p>
+              </div>
+            </div>
+
+            <div class="stack-title">Technical Stack &amp; Focus Areas</div>
+            <div class="tags stack-tags">
+              <span class="tag">HTML5 &amp; Modern CSS</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Web &amp; App Prototyping</span>
+              <span class="tag">cPanel &amp; Cloud Hosting</span>
+              <span class="tag">Domain DNS &amp; SSL</span>
+              <span class="tag">Commercial Stock AI</span>
+              <span class="tag">Prompt Engineering</span>
+              <span class="tag">Visual Consistency</span>
+              <span class="tag">ElevenLabs &amp; AI Studio</span>
+              <span class="tag">Hardware &amp; Firmware</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact-section" id="contact">
+      <div class="container-main">
+        <div class="reveal">
+          <span class="section-label">Let's build something</span>
+          <h2 class="section-title">Need a Website, App, or<br><span class="text-gradient">Complete Technical Setup?</span></h2>
+          <p class="section-desc">
+            Whether you need a website built and hosted from scratch, a custom app prototype, infrastructure support, or commercial AI visual assets, let's discuss your project.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="reveal">
+            <div class="contact-list">
+              <div class="contact-item glass">
+                <div class="icon-box"><i data-lucide="map-pin" width="20"></i></div>
+                <div>
+                  <small>Location</small>
+                  <strong>Tongi, Gazipur, Bangladesh</strong>
+                  <p>Dhaka Division · Available worldwide</p>
+                </div>
+              </div>
+
+              <a href="mailto:contact@mdabdulalek.com" class="contact-item glass">
+                <div class="icon-box"><i data-lucide="mail" width="20"></i></div>
+                <div>
+                  <small>Email</small>
+                  <strong>contact@mdabdulalek.com</strong>
+                  <p>Replace with your verified contact email if different.</p>
+                </div>
+              </a>
+
+              <a href="https://www.instagram.com/mdabdulalek2/" target="_blank" rel="noopener noreferrer" class="contact-item glass">
+                <div class="icon-box"><i data-lucide="at-sign" width="20"></i></div>
+                <div>
+                  <small>Social Handle</small>
+                  <strong>@mdabdulalek2</strong>
+                  <p>Instagram link — verify the profile URL before launch.</p>
+                </div>
+              </a>
+            </div>
+
+            <div class="social-links">
+              <a class="social-link" href="mailto:contact@mdabdulalek.com" aria-label="Email" title="Email">
+                <i data-lucide="mail" width="18"></i>
+              </a>
+              <a class="social-link" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="Add your LinkedIn profile URL">
+                <i data-lucide="linkedin" width="18"></i>
+              </a>
+              <a class="social-link" href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="Add your GitHub profile URL">
+                <i data-lucide="github" width="18"></i>
+              </a>
+              <a class="social-link" href="https://www.instagram.com/mdabdulalek2/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
+                <i data-lucide="instagram" width="18"></i>
+              </a>
+            </div>
+
+            <p class="muted mono" style="font-size:10px;line-height:1.9;margin-top:25px">
+              RESPONSE WORKFLOW<br>
+              Project details → Scope discussion → Proposal → Delivery
+            </p>
+          </div>
+
+          <form class="inquiry-form glass reveal" id="inquiryForm" style="transition-delay:.1s">
+            <h3 class="form-title">Tell me about your project</h3>
+            <p class="form-subtitle">Share a few details to prepare for an initial project discussion.</p>
+
+            <div class="form-grid">
+              <div class="field">
+                <label for="clientName">Your Name *</label>
+                <input id="clientName" name="name" type="text" placeholder="Full name" autocomplete="name" required maxlength="100">
+              </div>
+
+              <div class="field">
+                <label for="clientEmail">Email Address *</label>
+                <input id="clientEmail" name="email" type="email" placeholder="you@example.com" autocomplete="email" required maxlength="254">
+              </div>
+
+              <div class="field full">
+                <label for="service">Service Needed *</label>
+                <select id="service" name="service" required>
+                  <option value="" disabled selected>Select a service</option>
+                  <option>Complete Website + Hosting</option>
+                  <option>Mobile/Web App Development</option>
+                  <option>Domain &amp; Server Maintenance</option>
+                  <option>Commercial AI Stock &amp; Media</option>
+                  <option>Custom Project</option>
+                </select>
+              </div>
+
+              <div class="field full">
+                <label for="projectDetails">Project Details *</label>
+                <textarea id="projectDetails" name="details" placeholder="What are you planning to build? What problem should it solve?" required maxlength="5000"></textarea>
+              </div>
+            </div>
+
+            <div class="form-footer">
+              <p class="form-note">Your email app will open with your inquiry prepared for sending.</p>
+              <button type="submit" class="btn btn-primary">
+                Prepare Inquiry <i data-lucide="arrow-up-right" width="16"></i>
+              </button>
+            </div>
+
+            <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container-main footer-inner">
+      <a href="#home" class="brand" style="font-size:16px">
+        <span class="brand-mark" style="width:29px;height:29px;border-radius:8px"><i data-lucide="terminal-square" width="16"></i></span>
+        <span>ALEK<span style="color:#06b6d4">.</span>DEV</span>
+      </a>
+
+      <p class="footer-copy">© <span id="year">2026</span> Md. Abdul Alek. Engineered with Precision.</p>
+
+      <a href="#home" class="back-top">
+        Back to Top <i data-lucide="arrow-up" width="15"></i>
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    // Initialize Lucide icons.
+    lucide.createIcons();
+
+    // Sticky navigation appearance.
+    const navbar = document.getElementById('navbar');
+
+    function updateNavbar() {
+      navbar.classList.toggle('scrolled', window.scrollY > 25);
+    }
+
+    updateNavbar();
+    window.addEventListener('scroll', updateNavbar, { passive: true });
+
+    // Responsive mobile navigation.
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    function closeMenu() {
+      navLinks.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.setAttribute('aria-label', 'Open navigation menu');
+      menuToggle.innerHTML = '<i data-lucide="menu" width="21"></i>';
+      lucide.createIcons();
+    }
+
+    menuToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+      menuToggle.setAttribute(
+        'aria-label',
+        isOpen ? 'Close navigation menu' : 'Open navigation menu'
+      );
+
+      menuToggle.innerHTML = isOpen
+        ? '<i data-lucide="x" width="21"></i>'
+        : '<i data-lucide="menu" width="21"></i>';
+
+      lucide.createIcons();
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') closeMenu();
+    });
+
+    // Filterable project showcase.
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const filter = button.dataset.filter;
+
+        filterButtons.forEach(item => {
+          const active = item === button;
+          item.classList.toggle('active', active);
+          item.setAttribute('aria-pressed', String(active));
+        });
+
+        projectCards.forEach(card => {
+          const matches = filter === 'all' || card.dataset.category === filter;
+          card.hidden = !matches;
+        });
+      });
+    });
+
+    // Reveal content as it enters the viewport.
+    const revealElements = document.querySelectorAll('.reveal');
+
+    if ('IntersectionObserver' in window &&
+        !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.08,
+        rootMargin: '0px 0px -25px 0px'
+      });
+
+      revealElements.forEach(element => revealObserver.observe(element));
+    } else {
+      revealElements.forEach(element => element.classList.add('revealed'));
+    }
+
+    // Automatically keep the footer year current.
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Project inquiry form.
+    // This single-file version prepares an email; it does not transmit data
+    // to a server or save inquiries to a database.
+    const inquiryForm = document.getElementById('inquiryForm');
+    const formStatus = document.getElementById('formStatus');
+
+    const CONTACT_EMAIL = 'contact@mdabdulalek.com';
+
+    inquiryForm.addEventListener('submit', event => {
+      event.preventDefault();
+
+      if (!inquiryForm.reportValidity()) return;
+
+      const formData = new FormData(inquiryForm);
+
+      const name = String(formData.get('name') || '').trim();
+      const email = String(formData.get('email') || '').trim();
+      const service = String(formData.get('service') || '').trim();
+      const details = String(formData.get('details') || '').trim();
+
+      if (!name || !email || !service || !details) {
+        formStatus.textContent = 'Please complete all required fields.';
+        formStatus.classList.add('visible');
+        return;
+      }
+
+      const subject = `Project Inquiry: ${service}`;
+
+      const body = [
+        'Hello Md. Abdul Alek,',
+        '',
+        'I would like to discuss a project with you.',
+        '',
+        `Name: ${name}`,
+        `Email: ${email}`,
+        `Service: ${service}`,
+        '',
+        'Project Details:',
+        details,
+        '',
+        'Thank you.'
+      ].join('\n');
+
+      const mailto = 'mailto:' + CONTACT_EMAIL
+        + '?subject=' + encodeURIComponent(subject)
+        + '&body=' + encodeURIComponent(body);
+
+      formStatus.textContent =
+        'Your inquiry is prepared. Your email application should open next. ' +
+        'If it does not open, email ' + CONTACT_EMAIL + ' directly.';
+
+      formStatus.classList.add('visible');
+
+      // Use the browser's configured email application.
+      window.location.href = mailto;
+    });
+  </script>
+</body>
+</html>

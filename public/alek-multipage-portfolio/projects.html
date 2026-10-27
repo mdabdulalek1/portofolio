@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#faf9f6">
+<meta name="description" content="Projects & Technical Demonstrations by Md. Abdul Alek — Web Development, Hosting, and AI Solutions.">
+<title>Projects | Md. Abdul Alek — ALEK.DEV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+<header>
+  <nav class="wrap">
+    <a class="logo" href="index.html">
+      <img src="assets/alek-portrait.png" alt="Md. Abdul Alek" class="logo-avatar">
+      <span>ALEK<span>.</span>DEV</span>
+    </a>
+    <div class="navlinks" id="navlinks">
+      <a href="index.html">HOME</a>
+      <a href="services.html">SERVICES</a>
+      <a href="projects.html" class="active" aria-current="page">PROJECTS</a>
+      <a href="about.html">ABOUT</a>
+      <a href="contact.html">CONTACT</a>
+    </div>
+    <a class="nav-cta" href="contact.html">LET'S WORK TOGETHER ↗</a>
+    <button class="menu" id="menu" aria-label="Open navigation" aria-expanded="false"><i data-lucide="menu"></i></button>
+  </nav>
+</header>
+
+<main>
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="wrap">
+    <div class="eyebrow">DEMONSTRATION &amp; PROTOTYPE WORK</div>
+    <h1 class="page-title">TECHNICAL BUILDS &amp;<br><span class="yellow">DEMONSTRATION PROJECTS.</span></h1>
+    <p class="page-subtitle">
+      A showcase of demonstration web platforms, application prototypes, infrastructure blueprints, and AI creative workflows. Each project clearly outlines its specific objective, architecture, and my direct contribution.
+    </p>
+  </div>
+</section>
+
+<!-- PROJECTS GALLERY -->
+<section class="wrap section">
+  <!-- Filter buttons -->
+  <div class="filters" role="group" aria-label="Filter portfolio projects">
+    <button class="filter active" data-filter="all">ALL WORK</button>
+    <button class="filter" data-filter="web">WEB &amp; HOSTING</button>
+    <button class="filter" data-filter="app">APPLICATIONS</button>
+    <button class="filter" data-filter="ai">AI &amp; DIGITAL SOLUTIONS</button>
+  </div>
+
+  <div class="grid-3 project-grid">
+    <!-- Featured Real Project: MediStock Pharmacy -->
+    <article class="project-card" data-category="web" data-id="proj-medistock">
+      <div class="project-img-wrap">
+        <img src="https://images.unsplash.com/photo-1586015555751-63bb77f4322a?auto=format&fit=crop&w=800&q=80" alt="MediStock Pharmacy" loading="lazy">
+        <span class="type-tag">Live Web Project</span>
+      </div>
+      <div class="project-card-body">
+        <div class="category">PHARMACY &amp; HEALTHCARE WEB APP</div>
+        <h3>MediStock Pharmacy</h3>
+        <p>A pharmacy-focused digital project exploring medicine discovery, product information, and a more convenient online user experience.</p>
+        <div class="project-mini-spec">
+          <div><strong>Objective:</strong> Deliver a fast-loading medicine directory &amp; consultation experience.</div>
+          <div><strong>Contribution:</strong> Responsive frontend architecture, catalog organization, Cloudflare Workers hosting.</div>
+        </div>
+        <div class="tech-pills">
+          <span>Cloudflare Workers</span><span>JavaScript</span><span>HTML5</span><span>Responsive UI</span>
+        </div>
+        <div class="card-footer" style="display:flex;flex-direction:column;gap:8px">
+          <a href="https://medistock-pharmacy.alek25860.workers.dev" target="_blank" rel="noopener noreferrer" class="primary" style="display:flex;width:100%;text-align:center;justify-content:center;padding:10px;font-size:11px">
+            <i data-lucide="pill" style="width:14px;height:14px;margin-right:6px"></i> View Live Project →
+          </a>
+          <button class="open-modal-btn" data-project="proj-medistock" style="font-size:10px;background:none;border:none;color:#686868;cursor:pointer;text-align:right">View Technical Specification ↗</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Featured Real Project: YouTube AI Video Work -->
+    <article class="project-card" data-category="ai" data-id="proj-yt-aivideo">
+      <div class="project-img-wrap">
+        <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=800&q=80" alt="AI Video & Creative Experiments" loading="lazy">
+        <span class="type-tag">Creator Portfolio</span>
+      </div>
+      <div class="project-card-body">
+        <div class="category">AI VIDEO &amp; CREATIVE EXPERIMENTS</div>
+        <h3>AI Video &amp; Creative Experiments</h3>
+        <p>Generative video experiments, cinematic visual storytelling, voice synthesis integration, and creative workflows published on YouTube.</p>
+        <div class="project-mini-spec">
+          <div><strong>Objective:</strong> Document and explore practical AI video generation workflows.</div>
+          <div><strong>Contribution:</strong> Scene prompt engineering, cinematic pacing, voice synthesis, editing.</div>
+        </div>
+        <div class="tech-pills">
+          <span>Generative Video</span><span>Voice Synthesis</span><span>Video Editing</span><span>YouTube</span>
+        </div>
+        <div class="card-footer" style="display:flex;flex-direction:column;gap:8px">
+          <a href="https://www.youtube.com/@mdabdulalek2" target="_blank" rel="noopener noreferrer" class="primary" style="display:flex;width:100%;text-align:center;justify-content:center;padding:10px;font-size:11px">
+            <i data-lucide="youtube" style="width:14px;height:14px;margin-right:6px"></i> Watch on YouTube →
+          </a>
+          <button class="open-modal-btn" data-project="proj-yt-aivideo" style="font-size:10px;background:none;border:none;color:#686868;cursor:pointer;text-align:right">View Channel Specification ↗</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Featured Real Project: Adobe Stock Contributor -->
+    <article class="project-card" data-category="ai" data-id="proj-adobe-stock">
+      <div class="project-img-wrap">
+        <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&w=800&q=80" alt="Stock photography and digital assets" loading="lazy">
+        <span class="type-tag">Creator Portfolio</span>
+      </div>
+      <div class="project-card-body">
+        <div class="category">STOCK PHOTOGRAPHY &amp; DIGITAL ASSETS</div>
+        <h3>Stock Photography &amp; Digital Assets</h3>
+        <p>Explore my stock image portfolio and visual content created for digital and creative projects.</p>
+        <div class="project-mini-spec">
+          <div><strong>Objective:</strong> Curate commercially licensable visual collections on Adobe Stock.</div>
+          <div><strong>Contribution:</strong> Visual theme direction, high-resolution rendering, contributor submissions.</div>
+        </div>
+        <div class="tech-pills">
+          <span>Adobe Stock</span><span>Digital Assets</span><span>Art Direction</span><span>High-Res Curation</span>
+        </div>
+        <div class="card-footer" style="display:flex;flex-direction:column;gap:8px">
+          <a href="https://stock.adobe.com/contributor/213695412/Md%20Abdul%20Alek" target="_blank" rel="noopener noreferrer" class="primary" style="display:flex;width:100%;text-align:center;justify-content:center;padding:10px;font-size:11px">
+            <i data-lucide="camera" style="width:14px;height:14px;margin-right:6px"></i> Explore My Stock Portfolio →
+          </a>
+          <button class="open-modal-btn" data-project="proj-adobe-stock" style="font-size:10px;background:none;border:none;color:#686868;cursor:pointer;text-align:right">View Contributor Specification ↗</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Project 1 -->
+    <article class="project-card" data-category="web" data-id="proj-1">
+      <div class="project-img-wrap">
+        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Corporate website demonstration" loading="lazy">
+        <span class="type-tag">Demonstration Project</span>
+      </div>
+      <div class="project-card-body">
+        <div class="category">WEB DEVELOPMENT &amp; UI/UX</div>
+        <h3>Modern Business &amp; Portfolio Architecture</h3>
+        <p>A responsive website demonstration emphasizing fast load times and clean typographic hierarchy.</p>
+        <div class="project-mini-spec">
+          <div><strong>Objective:</strong> Showcase clear service communication across mobile and desktop devices.</div>
+          <div><strong>Contribution:</strong> Semantic HTML5/CSS, layout structuring, mobile-first responsive testing.</div>
+        </div>
+        <div class="tech-pills">
+          <span>HTML5</span><span>Modern CSS</span><span>JavaScript</span><span>Tailwind</span>
+        </div>
+        <div class="card-footer">
+          <button class="open-modal-btn" data-project="proj-1">View Specification ↗</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Project 2 -->
+    <article class="project-card" data-category="web" data-id="proj-2">
+      <div class="project-img-wrap">
+        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80" alt="Cloud infrastructure concept" loading="lazy">
+        <span class="type-tag">Architecture Concept</span>
+      </div>
+      <div class="project-card-body">
+        <div class="category">HOSTING &amp; INFRASTRUCTURE</div>
+        <h3>Domain, DNS &amp; Server Deployment Workflow</h3>
+        <p>A structured deployment blueprint for custom domain routing, SSL/TLS certificates, and cPanel setup.</p>
+        <div class="project-mini-spec">
+          <div><strong>Objective:</strong> Reliable, step-by-step pipeline for launching web projects safely.</div>
+          <div><strong>Contribution:</strong> DNS zone routing, SSL certificate setup, automated backup routine.</div>
+        </div>
+        <div class="tech-pills">
+          <span>Domain DNS</span><span>SSL/TLS</span><span>cPanel</span><span>Cloud</span>
+        </div>
+        <div class="card-footer">
+          <button class="open-modal-btn" data-project="proj-2">View Specification ↗</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Project 3 -->
+    <article class="project-card" data-category="app" data-id="proj-3">
+      <div class="project-img-wrap">
+        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Application utility prototype" loading="lazy">
+        <span class="type-tag">Functional Prototype</span>
+      </div>
+      <div class="project-card-body">
+        <div class="category">AI &amp; DIGITAL SOLUTIONS</div>
+        <h3>Smart Task &amp; Workflow Utility Prototype</h3>
+        <p>An interactive client-side utility interface engineered for organizing daily technical tasks efficiently.</p>
+        <div class="project-mini-spec">
+          <div><strong>Objective:</strong> Create a fast, distraction-free productivity utility with zero lag.</div>
+          <div><strong>Contribution:</strong> State management, local storage persistence, responsive UI tables.</div>
+        </div>
+        <div class="tech-pills">
+          <span>JavaScript</span><span>React Logic</span><span>CSS Grid</span><span>Storage</span>
+        </div>
+        <div class="card-footer">
+          <button class="open-modal-btn" data-project="proj-3">View Specification ↗</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Project 4 -->
+    <article class="project-card" data-category="app" data-id="proj-4">
+      <div class="project-img-wrap">
+        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80" alt="Mobile digital prototype" loading="lazy">
+        <span class="type-tag">Functional Prototype</span>
+      </div>
+      <div class="project-card-body">
+        <div class="category">WEB DEVELOPMENT &amp; UI/UX</div>
+        <h3>Mobile-First Digital Experience Prototype</h3>
+        <p>A focused mobile web experience concept emphasizing thumb ergonomics and readable typography.</p>
+        <div class="project-mini-spec">
+          <div><strong>Objective:</strong> Test responsive touch navigation patterns and clean typography.</div>
+          <div><strong>Contribution:</strong> Wireframing, touch UI structure, fluid layout transitions.</div>
+        </div>
+        <div class="tech-pills">
+          <span>Responsive UI</span><span>Touch UI</span><span>CSS Flexbox</span><span>HTML5</span>
+        </div>
+        <div class="card-footer">
+          <button class="open-modal-btn" data-project="proj-4">View Specification ↗</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Project 5 -->
+    <article class="project-card" data-category="ai" data-id="proj-5">
+      <div class="project-img-wrap">
+        <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=800&q=80" alt="AI visual asset pipeline" loading="lazy">
+        <span class="type-tag">Workflow Concept</span>
+      </div>
+      <div class="project-card-body">
+        <div class="category">AI &amp; DIGITAL SOLUTIONS</div>
+        <h3>AI Prompt Architecture &amp; Visual Asset Pipeline</h3>
+        <p>A structured workflow for creating consistent, high-resolution visual assets and concepts using AI tools.</p>
+        <div class="project-mini-spec">
+          <div><strong>Objective:</strong> Build reliable, reproducible AI image workflows with visual consistency.</div>
+          <div><strong>Contribution:</strong> Modular prompt templates, lighting tuning, resolution upscaling.</div>
+        </div>
+        <div class="tech-pills">
+          <span>Prompt Engineering</span><span>AI Studio</span><span>Upscaling</span><span>Media</span>
+        </div>
+        <div class="card-footer">
+          <button class="open-modal-btn" data-project="proj-5">View Specification ↗</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Project 6 -->
+    <article class="project-card" data-category="ai" data-id="proj-6">
+      <div class="project-img-wrap">
+        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80" alt="Content production pipeline" loading="lazy">
+        <span class="type-tag">Workflow Concept</span>
+      </div>
+      <div class="project-card-body">
+        <div class="category">AI &amp; DIGITAL SOLUTIONS</div>
+        <h3>Multi-Format Digital Content Production System</h3>
+        <p>An integrated workflow connecting script ideas, visual prompts, and voice synthesis for digital communication.</p>
+        <div class="project-mini-spec">
+          <div><strong>Objective:</strong> Streamline digital presentation assets combining text, image, and voice.</div>
+          <div><strong>Contribution:</strong> End-to-end media production pipeline design, audio synthesis standards.</div>
+        </div>
+        <div class="tech-pills">
+          <span>AI Workflow</span><span>Voice Synthesis</span><span>Prompt Design</span><span>Media</span>
+        </div>
+        <div class="card-footer">
+          <button class="open-modal-btn" data-project="proj-6">View Specification ↗</button>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <!-- Transparency Disclosure Note -->
+  <div class="disclosure-box">
+    <strong>Portfolio Transparency Note</strong>
+    <p>The projects showcased above are personal technical demonstrations, architecture concepts, and prototypes engineered by Md. Abdul Alek to illustrate specific coding, hosting, and AI workflow capabilities. They are not represented as paid commercial client engagements.</p>
+  </div>
+</section>
+
+<!-- BOTTOM CTA -->
+<section class="wrap section">
+  <div class="contact-panel">
+    <div class="contact-heading">HAVE A NEW PROJECT?</div>
+    <h2 class="panel-title">LET'S BUILD SOMETHING USEFUL.</h2>
+    <p class="panel-copy">Ready to start? I am available for freelance projects and remote contracts worldwide.</p>
+    <a class="primary" href="contact.html">DISCUSS A PROJECT ↗</a>
+  </div>
+</section>
+</main>
+
+<!-- PROJECT MODAL CONTAINER -->
+<div id="projectModal" class="modal-backdrop" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <div>
+        <span class="modal-category" id="modalCategory"></span>
+        <h3 id="modalTitle"></h3>
+      </div>
+      <button class="modal-close" id="modalClose" aria-label="Close modal">✕</button>
+    </div>
+    <div class="modal-body">
+      <img id="modalImg" src="" alt="" class="modal-image">
+      <div class="modal-section">
+        <h4>Project Objective</h4>
+        <p id="modalObjective" class="modal-callout"></p>
+      </div>
+      <div class="modal-section">
+        <h4>My Specific Contribution</h4>
+        <p id="modalContribution" class="modal-callout"></p>
+      </div>
+      <div class="modal-section">
+        <h4>Full Overview</h4>
+        <p id="modalOverview"></p>
+      </div>
+      <div class="modal-section">
+        <h4>Key Deliverables &amp; Technical Scope</h4>
+        <ul id="modalDeliverables" class="modal-list"></ul>
+      </div>
+      <div class="modal-section">
+        <h4>Technologies &amp; Tools Used</h4>
+        <div id="modalTech" class="tech-pills"></div>
+      </div>
+    </div>
+    <div class="modal-footer" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
+      <span class="modal-note" id="modalScopeNote">Technical Project Overview</span>
+      <div style="display:flex;align-items:center;gap:10px">
+        <a id="modalLiveBtn" href="#" target="_blank" rel="noopener noreferrer" class="primary" style="display:none;padding:8px 14px;font-size:11px"></a>
+        <button class="modal-close-btn" id="modalCloseBtn">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-title">IDEAS. CRAFTED <span>VISUALLY.</span></div>
+  <div class="footer-sub">WEB DEVELOPMENT · HOSTING &amp; INFRASTRUCTURE · AI SOLUTIONS</div>
+  <div class="footer-copy">© <span data-year></span> Md. Abdul Alek. Web Developer &amp; Technologist · Tongi, Gazipur, Bangladesh</div>
+</footer>
+
+<script src="assets/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#faf9f6">
+<meta name="description" content="Md. Abdul Alek — Web Developer, Computer Engineering Technologist, Server Administrator and AI Solutions Creator.">
+<title>Md. Abdul Alek — Creative Technology Portfolio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Oswald:wght@400;500;600;700&family=Caveat:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<style>
+:root{
+  --bg:#faf9f6;
+  --ink:#111111;
+  --yellow:#ffbd20;
+  --muted:#66635f;
+  --line:#dedbd4;
+  --white:#fff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:85px}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:"DM Sans",sans-serif;
+}
+a{color:inherit;text-decoration:none}
+button,input,textarea,select{font:inherit}
+button{cursor:pointer}
+.wrap{width:min(1200px,92%);margin:auto}
+header{
+  position:sticky;top:0;z-index:20;
+  background:rgba(250,249,246,.92);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(0,0,0,.06);
+}
+nav{height:75px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-size:21px;font-weight:800;letter-spacing:-1.4px}
+.logo span{color:#d99a00}
+.navlinks{display:flex;align-items:center;gap:27px;font-size:12px;font-weight:700}
+.navlinks a:hover{color:#b67e00}
+.nav-cta,.primary{
+  background:var(--yellow);color:#111;border:0;
+  padding:13px 20px;border-radius:5px;
+  font-size:12px;font-weight:800;display:inline-flex;
+  align-items:center;justify-content:center;gap:8px;
+  transition:.2s;
+}
+.nav-cta:hover,.primary:hover{background:#f4a900;transform:translateY(-2px)}
+.menu{display:none;background:none;border:0}
+.hero{
+  position:relative;overflow:hidden;padding:70px 0 32px;
+}
+.hero:before{
+  content:"";position:absolute;right:-100px;top:-150px;
+  width:56%;height:680px;background:var(--yellow);
+  border-radius:48% 0 0 45%;transform:rotate(-7deg);
+}
+.hero:after{
+  content:"";position:absolute;left:-130px;top:-170px;
+  width:320px;height:250px;background:#171717;
+  border-radius:0 0 65% 0;
+}
+.hero-grid{
+  position:relative;z-index:1;
+  display:grid;grid-template-columns:1fr .95fr;
+  gap:35px;align-items:center;
+}
+.intro{font-family:Caveat,cursive;color:#e7a500;font-size:38px}
+h1{
+  font-family:Oswald,sans-serif;text-transform:uppercase;
+  font-size:clamp(54px,7vw,92px);line-height:.99;
+  letter-spacing:-2px;margin:12px 0 20px;
+}
+.role{
+  display:inline-block;background:var(--yellow);
+  padding:8px 12px;font-size:12px;font-weight:800;
+  text-transform:uppercase;letter-spacing:.5px;
+}
+.hero h2{font-size:23px;line-height:1.5;margin:23px 0 12px;letter-spacing:-.7px}
+.yellow{color:#d99a00}
+.description{font-size:13px;color:#484641;line-height:1.95;max-width:440px}
+.hero-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.secondary{
+  border:1px solid #bdb8ad;padding:12px 18px;
+  border-radius:5px;font-size:12px;font-weight:800;
+}
+.secondary:hover{background:#fff}
+.portrait{
+  position:relative;display:flex;justify-content:center;
+  align-items:center;min-height:420px;
+}
+.portrait img{
+  position:relative;z-index:1;width:100%;max-width:490px;
+  height:480px;object-fit:cover;object-position:center 25%;
+  mix-blend-mode:multiply;filter:grayscale(1) contrast(1.12);
+  -webkit-mask-image:linear-gradient(to bottom,#000 78%,transparent 100%);
+  mask-image:linear-gradient(to bottom,#000 78%,transparent 100%);
+}
+.portrait-label{
+  position:absolute;right:0;bottom:35px;z-index:2;
+  background:#fff;padding:13px 17px;border-radius:4px;
+  box-shadow:0 8px 25px #0000000d;font-size:11px;
+}
+.portrait-label strong{display:block;font-size:13px;margin-bottom:4px}
+.social-row{display:flex;align-items:center;gap:10px;margin-top:25px}
+.social{
+  width:34px;height:34px;border-radius:50%;background:#111;color:#fff;
+  display:grid;place-items:center;transition:.2s
+}
+.social:hover{background:#d99a00;transform:translateY(-3px)}
+.social i{width:16px;height:16px}
+.social-caption{border-left:1px solid var(--line);padding-left:16px;font-size:11px;font-weight:700}
+.services{
+  position:relative;z-index:3;background:#fff;border:1px solid #e9e5dd;
+  border-radius:17px;padding:25px 15px;margin-top:10px;
+  display:grid;grid-template-columns:repeat(4,1fr);
+  box-shadow:0 12px 35px #0000000c;
+}
+.service{padding:5px 22px;border-right:1px solid var(--line)}
+.service:last-child{border:0}
+.service-icon{
+  width:47px;height:47px;border-radius:50%;background:var(--yellow);
+  display:grid;place-items:center;margin:0 auto 14px;
+}
+.service-icon i{width:22px;height:22px}
+.service h3{text-align:center;font-size:13px;margin:0 0 12px;font-weight:800}
+.service ul{padding-left:15px;margin:0;font-size:10px;line-height:2.1;color:#444}
+.details{
+  display:grid;grid-template-columns:.85fr 1.15fr;
+  gap:45px;padding:35px 5px 30px;
+}
+.section-heading{
+  font-size:13px;text-transform:uppercase;font-weight:800;
+  margin:0 0 20px;
+}
+.section-heading span{color:#d99a00}
+.underline{width:34px;height:3px;background:var(--yellow);margin-top:-12px;margin-bottom:17px}
+.highlights{list-style:none;padding:0;margin:0}
+.highlights li{
+  display:flex;align-items:flex-start;gap:10px;
+  font-size:11px;margin:12px 0;line-height:1.7
+}
+.check{
+  width:16px;height:16px;border-radius:50%;background:var(--yellow);
+  display:grid;place-items:center;flex-shrink:0;margin-top:1px
+}
+.check i{width:11px;height:11px}
+.tools{border-left:1px solid var(--line);padding-left:30px}
+.tool-grid{display:grid;grid-template-columns:repeat(4,54px);gap:12px}
+.tool{
+  width:54px;height:54px;background:#fff;border:1px solid #eee9e1;
+  border-radius:7px;display:grid;place-items:center;
+  font-size:13px;font-weight:800;transition:.2s
+}
+.tool:hover{transform:translateY(-3px);border-color:var(--yellow)}
+.tool i{width:23px;height:23px}
+.quote{
+  font-family:Caveat,cursive;font-size:23px;line-height:1.35;
+  margin:20px 0 0;color:#35332f
+}
+.quote span{color:#d99a00}
+.projects{padding:35px 0 65px}
+.section-top{display:flex;justify-content:space-between;gap:20px;align-items:end}
+.section-top h2{
+  font-family:Oswald,sans-serif;font-size:36px;
+  text-transform:uppercase;margin:8px 0;letter-spacing:-.5px
+}
+.eyebrow{font-size:10px;text-transform:uppercase;letter-spacing:2px;font-weight:800;color:#a77800}
+.filters{display:flex;gap:7px;flex-wrap:wrap;margin:22px 0}
+.filter{
+  background:transparent;border:1px solid #d8d2c7;border-radius:4px;
+  padding:9px 12px;font-size:10px;font-weight:700
+}
+.filter.active,.filter:hover{background:var(--yellow);border-color:var(--yellow)}
+.project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+.project{background:white;border:1px solid #ebe7df;border-radius:9px;overflow:hidden;transition:.25s}
+.project:hover{transform:translateY(-4px);box-shadow:0 12px 30px #0000000a}
+.project[hidden]{display:none}
+.project img{display:block;width:100%;height:190px;object-fit:cover;background:#eee}
+.project-content{padding:17px}
+.project-category{font-size:9px;font-weight:800;color:#a77800;text-transform:uppercase;letter-spacing:1px}
+.project h3{font-size:14px;line-height:1.6;margin:9px 0}
+.project p{font-size:11px;line-height:1.8;color:#68645e;margin:0}
+.project-foot{border-top:1px solid #eee9e1;margin-top:14px;padding-top:12px;display:flex;justify-content:space-between;font-size:10px;font-weight:700}
+.project-foot i{width:16px}
+.about{padding:60px 0}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:start}
+.about h2{font-family:Oswald,sans-serif;font-size:43px;line-height:1.13;text-transform:uppercase;margin:14px 0}
+.about p{font-size:13px;color:#55514b;line-height:2}
+.about strong{color:#111}
+.credentials{background:#fff;border:1px solid #ebe7df;border-radius:10px;padding:24px}
+.credential{display:flex;gap:13px;padding:15px 0;border-bottom:1px solid #eee9e1}
+.credential:last-child{border:0}
+.credential-icon{background:#fff3cf;padding:10px;height:39px;border-radius:6px}
+.credential-icon i{width:18px;height:18px}
+.credential h3{font-size:12px;margin:0 0 6px}
+.credential p{font-size:10px;margin:0;line-height:1.8}
+.stack{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}
+.stack span{font-size:10px;background:#f7f5f0;padding:8px 10px;border-radius:4px}
+.contact{padding:20px 0 35px}
+.contact-panel{
+  background:#171717;color:#fff;border-radius:19px;
+  padding:28px;position:relative;overflow:hidden
+}
+.contact-panel:after{
+  content:"";position:absolute;right:-25px;bottom:-65px;
+  width:150px;height:150px;border:1px dotted #ffbd20;border-radius:50%
+}
+.contact-heading{font-size:11px;color:var(--yellow);font-weight:800;text-transform:uppercase;letter-spacing:1px}
+.contact-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-top:18px;position:relative;z-index:1}
+.contact-item{display:flex;align-items:center;gap:12px;min-width:0;border-right:1px solid #555;padding-right:15px}
+.contact-item:last-child{border:0}
+.contact-icon{width:37px;height:37px;background:var(--yellow);color:#111;display:grid;place-items:center;border-radius:4px;flex-shrink:0}
+.contact-icon i{width:18px}
+.contact-item strong{font-size:11px;overflow-wrap:anywhere}
+.contact-item small{display:block;color:var(--yellow);font-size:9px;margin-top:6px;line-height:1.6}
+.contact-item a:hover{color:var(--yellow)}
+.contact-form{margin-top:22px;position:relative;z-index:1}
+.contact-form summary{font-size:11px;font-weight:800;cursor:pointer;color:var(--yellow)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+.form-grid input,.form-grid select,.form-grid textarea{
+  width:100%;padding:12px;border:1px solid #454545;background:#242424;
+  color:white;border-radius:4px;font-size:11px
+}
+.form-grid textarea{grid-column:1/-1;min-height:90px;resize:vertical}
+.form-grid button{justify-self:start}
+footer{text-align:center;padding:18px 0 27px}
+.footer-title{font-family:Oswald,sans-serif;font-size:23px;letter-spacing:5px;font-weight:600}
+.footer-title span{color:#d99a00}
+.footer-sub{font-size:9px;letter-spacing:2px;margin-top:8px}
+.footer-copy{font-size:10px;color:#777;margin-top:16px}
+.reveal{animation:enter .7s both}
+@keyframes enter{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@media(min-width:1000px){.hero-grid{min-height:475px}}
+@media(max-width:850px){
+  .navlinks{gap:14px}.hero-grid{grid-template-columns:1fr .8fr;gap:18px}
+  .portrait img{height:390px}.services{grid-template-columns:repeat(2,1fr);gap:18px}
+  .service:nth-child(2){border-right:0}.service:nth-child(-n+2){padding-bottom:18px;border-bottom:1px solid var(--line)}
+  .project-grid{grid-template-columns:repeat(2,1fr)}
+  .contact-row{grid-template-columns:1fr}.contact-item{border-right:0;border-bottom:1px solid #555;padding:0 0 14px}
+}
+@media(max-width:600px){
+  .wrap{width:91%}
+  nav{height:65px}.menu{display:block}
+  .navlinks{
+    display:none;position:absolute;top:65px;left:0;right:0;
+    background:var(--bg);padding:18px 5%;border-bottom:1px solid var(--line);
+    flex-direction:column;align-items:stretch
+  }
+  .navlinks.open{display:flex}
+  .navlinks a{padding:10px 0}
+  .nav-cta{display:none}
+  .hero{padding-top:42px}
+  .hero:before{top:310px;right:-170px;width:90%;height:410px}
+  .hero:after{width:180px;height:130px;left:-80px;top:-90px}
+  .hero-grid{grid-template-columns:1fr;gap:5px}
+  .intro{font-size:32px}
+  h1{font-size:clamp(55px,13vw,77px)}
+  .hero h2{font-size:21px}
+  .description{font-size:12px}
+  .portrait{min-height:300px;margin-top:10px}
+  .portrait img{height:340px;max-width:390px}
+  .portrait-label{right:0;bottom:18px}
+  .services{margin-top:12px;padding:18px 7px;gap:15px}
+  .service{padding:5px 10px}
+  .service h3{font-size:11px}
+  .service ul{font-size:9px;padding-left:12px}
+  .service-icon{width:42px;height:42px}
+  .details{grid-template-columns:1fr;gap:25px;padding-top:30px}
+  .tools{border-left:0;border-top:1px solid var(--line);padding:25px 0 0}
+  .tool-grid{grid-template-columns:repeat(4,48px);gap:9px}
+  .tool{width:48px;height:48px}
+  .project-grid{grid-template-columns:1fr}
+  .project img{height:210px}
+  .section-top{align-items:start;flex-direction:column}
+  .section-top h2{font-size:31px}
+  .about-grid{grid-template-columns:1fr;gap:25px}
+  .about h2{font-size:37px}
+  .contact-panel{padding:22px 18px}
+  .form-grid{grid-template-columns:1fr}
+  .form-grid textarea{grid-column:auto}
+  .footer-title{font-size:21px}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+
+<body>
+<header>
+  <nav class="wrap">
+    <a class="logo" href="#home">ALEK<span>.</span>DEV</a>
+    <div class="navlinks" id="navlinks">
+      <a href="#services">SERVICES</a>
+      <a href="#projects">PROJECTS</a>
+      <a href="#about">ABOUT ME</a>
+      <a href="#contact">CONTACT</a>
+    </div>
+    <a class="nav-cta" href="#contact">LET'S WORK TOGETHER ↗</a>
+    <button class="menu" id="menu" aria-label="Open navigation" aria-expanded="false">
+      <i data-lucide="menu"></i>
+    </button>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="wrap hero-grid">
+    <div class="reveal">
+      <div class="intro">Hi, I'm Alek</div>
+      <h1>MD. ABDUL<br>ALEK</h1>
+      <div class="role">WEB DEVELOPER | IT TECHNOLOGIST</div>
+      <h2>I Build <span class="yellow">Digital Solutions.</span><br>I Engineer <span class="yellow">Possibilities.</span></h2>
+      <p class="description">
+        Computer Engineering graduate with a CGPA of 3.68.
+        I combine web development, application design, server
+        administration, and AI-powered creative workflows to
+        turn ideas into useful digital experiences.
+      </p>
+      <div class="hero-buttons">
+        <a class="primary" href="#projects">EXPLORE MY WORK ↗</a>
+        <a class="secondary" href="#contact">LET'S CONNECT</a>
+      </div>
+      <div class="social-row">
+        <a class="social" href="https://github.com/" aria-label="GitHub"><i data-lucide="github"></i></a>
+        <a class="social" href="https://www.linkedin.com/" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+        <a class="social" href="mailto:contact@mdabdulalek.com" aria-label="Email"><i data-lucide="mail"></i></a>
+        <span class="social-caption">Let's Connect<br>&amp; Create</span>
+      </div>
+    </div>
+    <div class="portrait reveal">
+      <!-- Replace this stock portrait with your own photo for a personalized result. -->
+      <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=85"
+           alt="Portrait placeholder for Md. Abdul Alek">
+      <div class="portrait-label">
+        <strong>Md. Abdul Alek</strong>
+        Digital Technologist · Bangladesh
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" id="services">
+  <div class="services">
+    <article class="service">
+      <div class="service-icon"><i data-lucide="code-2"></i></div>
+      <h3>WEB DEVELOPMENT</h3>
+      <ul>
+        <li>Website Design</li>
+        <li>Responsive UI/UX</li>
+        <li>Business Platforms</li>
+        <li>SEO Fundamentals</li>
+      </ul>
+    </article>
+    <article class="service">
+      <div class="service-icon"><i data-lucide="smartphone"></i></div>
+      <h3>APP DEVELOPMENT</h3>
+      <ul>
+        <li>Web Applications</li>
+        <li>Mobile UI Concepts</li>
+        <li>Workflow Automation</li>
+        <li>AI-Assisted Coding</li>
+      </ul>
+    </article>
+    <article class="service">
+      <div class="service-icon"><i data-lucide="server"></i></div>
+      <h3>HOSTING & IT</h3>
+      <ul>
+        <li>Domain & DNS</li>
+        <li>cPanel & Hosting</li>
+        <li>SSL Configuration</li>
+        <li>System Administration</li>
+      </ul>
+    </article>
+    <article class="service">
+      <div class="service-icon"><i data-lucide="sparkles"></i></div>
+      <h3>AI & DIGITAL MEDIA</h3>
+      <ul>
+        <li>AI Image Workflows</li>
+        <li>Creative Assets</li>
+        <li>Prompt Engineering</li>
+        <li>Brand Media Concepts</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section class="wrap details">
+  <div>
+    <h2 class="section-heading">EXPERIENCE <span>HIGHLIGHTS</span></h2>
+    <div class="underline"></div>
+    <ul class="highlights">
+      <li><span class="check"><i data-lucide="check"></i></span>Diploma in Computer Engineering</li>
+      <li><span class="check"><i data-lucide="check"></i></span>CGPA of 3.68 / 4.00</li>
+      <li><span class="check"><i data-lucide="check"></i></span>IT administration and technical operations</li>
+      <li><span class="check"><i data-lucide="check"></i></span>Web development and application prototyping</li>
+      <li><span class="check"><i data-lucide="check"></i></span>AI-assisted digital content workflows</li>
+    </ul>
+  </div>
+  <div class="tools">
+    <h2 class="section-heading">TOOLS <span>I USE</span></h2>
+    <div class="underline"></div>
+    <div class="tool-grid">
+      <div class="tool" title="HTML"><i data-lucide="code"></i></div>
+      <div class="tool" title="JavaScript"><i data-lucide="file-code"></i></div>
+      <div class="tool" title="Cloud hosting"><i data-lucide="cloud"></i></div>
+      <div class="tool" title="Server administration"><i data-lucide="server"></i></div>
+      <div class="tool" title="UI and UX"><i data-lucide="figma"></i></div>
+      <div class="tool" title="AI tools"><i data-lucide="brain-circuit"></i></div>
+      <div class="tool" title="Database"><i data-lucide="database"></i></div>
+      <div class="tool" title="Security"><i data-lucide="shield-check"></i></div>
+    </div>
+    <p class="quote">“Creativity is not just what I do,<br>it's <span>how I solve problems.</span>”</p>
+  </div>
+</section>
+
+<section class="projects wrap" id="projects">
+  <div class="section-top">
+    <div>
+      <div class="eyebrow">SELECTED WORK & CONCEPTS</div>
+      <h2>MY CREATIVE PORTFOLIO</h2>
+    </div>
+    <a class="secondary" href="#contact">START A PROJECT ↗</a>
+  </div>
+
+  <div class="filters" role="group" aria-label="Filter portfolio projects">
+    <button class="filter active" data-filter="all" aria-pressed="true">ALL WORK</button>
+    <button class="filter" data-filter="web" aria-pressed="false">WEB & HOSTING</button>
+    <button class="filter" data-filter="app" aria-pressed="false">APPLICATIONS</button>
+    <button class="filter" data-filter="ai" aria-pressed="false">AI & MEDIA</button>
+  </div>
+
+  <div class="project-grid">
+    <article class="project" data-category="web">
+      <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Business analytics website concept" loading="lazy">
+      <div class="project-content">
+        <div class="project-category">WEB DEVELOPMENT</div>
+        <h3>Corporate Website & Digital Portfolio</h3>
+        <p>A responsive web experience built around clear content, modern design, and user-friendly navigation.</p>
+        <div class="project-foot"><span>WEB / UI DESIGN</span><i data-lucide="arrow-up-right"></i></div>
+      </div>
+    </article>
+    <article class="project" data-category="web">
+      <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80" alt="Cloud infrastructure visual concept" loading="lazy">
+      <div class="project-content">
+        <div class="project-category">WEB & HOSTING</div>
+        <h3>Domain & Cloud Infrastructure</h3>
+        <p>A deployment concept covering DNS, hosting configuration, SSL, and website maintenance.</p>
+        <div class="project-foot"><span>INFRASTRUCTURE</span><i data-lucide="arrow-up-right"></i></div>
+      </div>
+    </article>
+    <article class="project" data-category="app">
+      <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Application dashboard design" loading="lazy">
+      <div class="project-content">
+        <div class="project-category">APPLICATIONS</div>
+        <h3>Smart Management Dashboard</h3>
+        <p>An application concept for organizing information and streamlining everyday business workflows.</p>
+        <div class="project-foot"><span>APP / WORKFLOW</span><i data-lucide="arrow-up-right"></i></div>
+      </div>
+    </article>
+    <article class="project" data-category="app">
+      <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80" alt="Mobile application design" loading="lazy">
+      <div class="project-content">
+        <div class="project-category">APPLICATIONS</div>
+        <h3>Mobile-First Digital Experience</h3>
+        <p>A mobile interface concept with accessible navigation and straightforward interactions.</p>
+        <div class="project-foot"><span>MOBILE / UX</span><i data-lucide="arrow-up-right"></i></div>
+      </div>
+    </article>
+    <article class="project" data-category="ai">
+      <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=800&q=80" alt="Contemporary architectural visualization" loading="lazy">
+      <div class="project-content">
+        <div class="project-category">AI & MEDIA</div>
+        <h3>Architectural Visual Asset Collection</h3>
+        <p>A creative direction concept for architectural imagery and AI-assisted commercial media.</p>
+        <div class="project-foot"><span>VISUAL CONTENT</span><i data-lucide="arrow-up-right"></i></div>
+      </div>
+    </article>
+    <article class="project" data-category="ai">
+      <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80" alt="Artificial intelligence creative concept" loading="lazy">
+      <div class="project-content">
+        <div class="project-category">AI & MEDIA</div>
+        <h3>AI Creative Workflow System</h3>
+        <p>A concept for repeatable image-generation workflows, brand assets, and AI-assisted media production.</p>
+        <div class="project-foot"><span>AI / CREATIVE</span><i data-lucide="arrow-up-right"></i></div>
+      </div>
+    </article>
+  </div>
+  <p style="font-size:10px;color:#777;margin-top:18px;line-height:1.8">
+    Portfolio previews are illustrative concepts. Replace them with screenshots and links to your actual work before presenting them as completed projects.
+  </p>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div>
+      <div class="eyebrow">A LITTLE ABOUT ME</div>
+      <h2>ENGINEERING<br>MEETS <span class="yellow">CREATIVITY.</span></h2>
+      <p>
+        I'm <strong>Md. Abdul Alek</strong>, a Computer Engineering graduate
+        passionate about building useful digital products. My work brings
+        together web development, technical infrastructure, application
+        concepts, and AI-powered creative tools.
+      </p>
+      <p>
+        My goal is to make technology practical and approachable — from
+        designing an engaging website to helping deploy and maintain the
+        systems behind it.
+      </p>
+      <a class="primary" href="#contact">LET'S BUILD SOMETHING ↗</a>
+    </div>
+    <div class="credentials">
+      <h2 class="section-heading">EDUCATION <span>& CREDENTIALS</span></h2>
+      <div class="credential">
+        <div class="credential-icon"><i data-lucide="graduation-cap"></i></div>
+        <div><h3>Diploma in Engineering — Computer Technology</h3><p>CGPA: 3.68 / 4.00</p></div>
+      </div>
+      <div class="credential">
+        <div class="credential-icon"><i data-lucide="brain-circuit"></i></div>
+        <div><h3>Advanced AI & Digital Workflow Training</h3><p>Department of Youth Development · Tongi, Gazipur · 2026</p></div>
+      </div>
+      <div class="credential">
+        <div class="credential-icon"><i data-lucide="monitor-cog"></i></div>
+        <div><h3>Institutional IT Administration</h3><p>Systems, hardware and network operations</p></div>
+      </div>
+      <h2 class="section-heading" style="margin-top:22px">TECHNICAL <span>SKILLS</span></h2>
+      <div class="stack">
+        <span>HTML & CSS</span><span>JavaScript</span><span>Responsive UI</span>
+        <span>Web Applications</span><span>cPanel</span><span>DNS & SSL</span>
+        <span>AI Workflows</span><span>Prompt Engineering</span>
+        <span>System Administration</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact wrap" id="contact">
+  <div class="contact-panel">
+    <div class="contact-heading">LET'S WORK TOGETHER <span style="float:right">✳</span></div>
+    <div class="contact-row">
+      <div class="contact-item">
+        <div class="contact-icon"><i data-lucide="phone"></i></div>
+        <div><strong>Bangladesh</strong><small>Available for worldwide projects</small></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon"><i data-lucide="mail"></i></div>
+        <div><strong><a href="mailto:contact@mdabdulalek.com">contact@mdabdulalek.com</a></strong><small>EMAIL FOR PROJECT INQUIRIES</small></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon"><i data-lucide="map-pin"></i></div>
+        <div><strong>Tongi, Gazipur</strong><small>Dhaka Division, Bangladesh</small></div>
+      </div>
+    </div>
+
+    <details class="contact-form">
+      <summary>HAVE A PROJECT IN MIND? SEND AN INQUIRY ↗</summary>
+      <form id="inquiry">
+        <div class="form-grid">
+          <input name="name" placeholder="Your name" required maxlength="100" aria-label="Your name">
+          <input name="email" type="email" placeholder="Your email" required maxlength="254" aria-label="Your email">
+          <select name="service" required aria-label="Select service">
+            <option value="">Select a service</option>
+            <option>Website Development</option>
+            <option>Mobile/Web App Development</option>
+            <option>Domain & Server Maintenance</option>
+            <option>AI Creative Media</option>
+            <option>Custom Project</option>
+          </select>
+          <textarea name="details" placeholder="Tell me about your project..." required maxlength="5000" aria-label="Project details"></textarea>
+          <button class="primary" type="submit">PREPARE EMAIL ↗</button>
+        </div>
+        <p id="formStatus" style="font-size:11px;line-height:1.8"></p>
+      </form>
+    </details>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="footer-title">IDEAS. CRAFTED <span>VISUALLY.</span></div>
+  <div class="footer-sub">WEB · APPLICATIONS · INFRASTRUCTURE · AI</div>
+  <div class="footer-copy">© <span id="year"></span> Md. Abdul Alek. Built with creativity and precision.</div>
+</footer>
+
+<script>
+lucide.createIcons();
+
+const menu = document.getElementById('menu');
+const navlinks = document.getElementById('navlinks');
+
+menu.addEventListener('click', () => {
+  const open = navlinks.classList.toggle('open');
+  menu.setAttribute('aria-expanded', String(open));
+  menu.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+  menu.innerHTML = open
+    ? '<i data-lucide="x"></i>'
+    : '<i data-lucide="menu"></i>';
+  lucide.createIcons();
+});
+
+navlinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navlinks.classList.remove('open');
+    menu.setAttribute('aria-expanded', 'false');
+    menu.setAttribute('aria-label', 'Open navigation');
+    menu.innerHTML = '<i data-lucide="menu"></i>';
+    lucide.createIcons();
+  });
+});
+
+document.querySelectorAll('.filter').forEach(button => {
+  button.addEventListener('click', () => {
+    document.querySelectorAll('.filter').forEach(item => {
+      const active = item === button;
+      item.classList.toggle('active', active);
+      item.setAttribute('aria-pressed', String(active));
+    });
+
+    document.querySelectorAll('.project').forEach(project => {
+      project.hidden =
+        button.dataset.filter !== 'all' &&
+        project.dataset.category !== button.dataset.filter;
+    });
+  });
+});
+
+document.getElementById('year').textContent = new Date().getFullYear();
+
+document.getElementById('inquiry').addEventListener('submit', event => {
+  event.preventDefault();
+
+  const data = new FormData(event.currentTarget);
+  const subject = 'Portfolio Inquiry — ' + data.get('service');
+  const body = [
+    'Hello Md. Abdul Alek,',
+    '',
+    'Name: ' + data.get('name'),
+    'Email: ' + data.get('email'),
+    'Service: ' + data.get('service'),
+    '',
+    'Project details:',
+    data.get('details')
+  ].join('\n');
+
+  document.getElementById('formStatus').textContent =
+    'Your email draft is being opened. If nothing opens, contact@mdabdulalek.com is the configured contact address.';
+
+  window.location.href = 'mailto:contact@mdabdulalek.com?subject='
+    + encodeURIComponent(subject)
+    + '&body=' + encodeURIComponent(body);
+});
+</script>
+</body>
+</html>
