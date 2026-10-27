@@ -131,7 +131,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
             <div className="relative flex justify-center items-center select-none">
               <div className="relative w-full max-w-[540px] lg:max-w-[580px] flex items-center justify-center">
                 <img
-                  src="/public/assets/aistudio/alek_transparent.png"
+                  src="/assets/aistudio/alek_transparent.png"
                   alt="Md. Abdul Alek"
                   className="w-full h-auto max-h-[560px] object-contain drop-shadow-none"
                   style={{
@@ -139,10 +139,10 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                     maskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%)',
                   }}
                   onError={(e) => {
-                    // Fallback to original image asset if needed
+                    // Fallback to blended image asset if needed
                     const target = e.target as HTMLImageElement;
-                    if (!target.src.includes('image_0c1aed62.png')) {
-                      target.src = '/public/assets/aistudio/image_0c1aed62.png';
+                    if (!target.src.includes('alek_blended.png')) {
+                      target.src = '/assets/aistudio/alek_blended.png';
                     }
                   }}
                 />

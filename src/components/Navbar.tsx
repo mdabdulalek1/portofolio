@@ -34,7 +34,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
           className="flex items-center gap-2.5 text-[21px] font-extrabold tracking-[-1.2px] text-[#171717] hover:opacity-90 transition-opacity bg-transparent border-0 p-0 cursor-pointer"
         >
           <img
-            src="/public/assets/aistudio/image_0c1aed62.png"
+            src="/assets/aistudio/alek_blended.png"
             alt="Md. Abdul Alek"
             className="w-8 h-8 rounded-full object-cover border-2 border-[#ffbd20] shadow-xs"
           />

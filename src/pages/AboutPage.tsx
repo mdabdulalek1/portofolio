@@ -57,7 +57,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
           <div className="shrink-0 relative self-center md:self-auto">
             <div className="w-[190px] sm:w-[220px] aspect-square rounded-2xl overflow-hidden border-2 border-[#ffbd20] shadow-[0_12px_30px_rgba(0,0,0,0.06)] bg-[#faf8f3]">
               <img
-                src="/public/assets/aistudio/image_0c1aed62.png"
+                src="/assets/aistudio/alek_blended.png"
                 alt="Md. Abdul Alek — Web Developer & Technologist"
                 className="w-full h-full object-cover object-center"
               />
