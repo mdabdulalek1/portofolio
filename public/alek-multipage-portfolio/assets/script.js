@@ -69,6 +69,23 @@ const projectData = {
     liveUrl: 'https://medistock-pharmacy.alek25860.workers.dev',
     actionLabel: 'View Live Project →'
   },
+  'proj-ecommerce': {
+    title: 'Modern E-Commerce Store Platform',
+    category: 'E-COMMERCE & DIGITAL STORE · LIVE WEB PROJECT',
+    image: 'https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=800&q=80',
+    objective: 'Build an accessible, fast-loading modern e-commerce platform with intuitive catalog navigation, responsive product showcases, and frictionless browsing.',
+    contribution: 'Architected the responsive UI layout, structured the product showcase components, implemented category filters, and configured edge deployment on Cloudflare Workers.',
+    overview: 'A modern e-commerce web platform deployed on Cloudflare Workers edge architecture, engineered for fast product discovery, responsive catalog browsing, clean pricing presentation, and an intuitive shopping user experience.',
+    deliverables: [
+      'Modern, responsive e-commerce storefront with smooth product browsing',
+      'Structured product categorization, clean pricing layouts, and item cards',
+      'Edge-hosted deployment on Cloudflare Workers for fast global loading',
+      'Mobile-optimized shopping cart and inquiry interaction patterns'
+    ],
+    techStack: ['Cloudflare Workers', 'JavaScript', 'HTML5', 'Modern CSS', 'Responsive UI', 'E-Commerce'],
+    liveUrl: 'https://e-commerce.alek25860.workers.dev/',
+    actionLabel: 'View Live Store →'
+  },
   'proj-yt-aivideo': {
     title: 'AI Video & Creative Experiments',
     category: 'AI VIDEO & CREATIVE EXPERIMENTS · CREATOR PORTFOLIO',

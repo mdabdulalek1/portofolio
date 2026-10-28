@@ -14,7 +14,7 @@ export interface CreativeProject {
   techStack: string[];
   liveUrl?: string;
   actionLabel?: string;
-  iconType?: 'pill' | 'youtube' | 'camera';
+  iconType?: 'pill' | 'youtube' | 'camera' | 'cart';
 }
 
 export const socialProfiles = {
@@ -63,6 +63,29 @@ export const creativeProjects: CreativeProject[] = [
     liveUrl: 'https://medistock-pharmacy.alek25860.workers.dev',
     actionLabel: 'View Live Project →',
     iconType: 'pill'
+  },
+  {
+    id: 'proj-ecommerce',
+    category: 'web',
+    categoryLabel: 'E-COMMERCE & DIGITAL STORE',
+    projectType: 'Live Web Project',
+    title: 'Modern E-Commerce Store Platform',
+    description: 'A responsive online retail storefront exploring product catalogs, category filtering, cart interactions, and a clean shopping user flow.',
+    fullOverview: 'A modern e-commerce web platform deployed on Cloudflare Workers edge architecture, engineered for fast product discovery, responsive catalog browsing, clean pricing presentation, and an intuitive shopping user experience.',
+    objective: 'Build an accessible, fast-loading modern e-commerce platform with intuitive catalog navigation, responsive product showcases, and frictionless browsing.',
+    contribution: 'Architected the responsive UI layout, structured the product showcase components, implemented category filters, and configured edge deployment on Cloudflare Workers.',
+    image: 'https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=800&q=80',
+    scopeBadge: 'LIVE E-COMMERCE PLATFORM',
+    deliverables: [
+      'Modern, responsive e-commerce storefront with smooth product browsing',
+      'Structured product categorization, clean pricing layouts, and item cards',
+      'Edge-hosted deployment on Cloudflare Workers for fast global loading',
+      'Mobile-optimized shopping cart and inquiry interaction patterns'
+    ],
+    techStack: ['Cloudflare Workers', 'JavaScript', 'HTML5', 'Modern CSS', 'Responsive UI', 'E-Commerce'],
+    liveUrl: 'https://e-commerce.alek25860.workers.dev/',
+    actionLabel: 'View Live Store →',
+    iconType: 'cart'
   },
   {
     id: 'proj-yt-aivideo',

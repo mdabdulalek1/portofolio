@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { creativeProjects, CreativeProject } from '../data/portfolioData';
-import { X, Layers, Code, CheckCircle, Info, Pill, Youtube, Camera, ExternalLink, ArrowUpRight } from 'lucide-react';
+import { X, Layers, Code, CheckCircle, Info, Pill, Youtube, Camera, ExternalLink, ArrowUpRight, ShoppingBag } from 'lucide-react';
 
 export const ProjectsPage: React.FC = () => {
   const [filter, setFilter] = useState<'all' | 'web' | 'app' | 'ai'>('all');
@@ -136,9 +136,10 @@ export const ProjectsPage: React.FC = () => {
                       className="inline-flex items-center justify-center gap-1.5 w-full bg-[#ffbd20] hover:bg-[#f4a900] text-[#111] px-3.5 py-2.5 rounded-[5px] text-[11px] font-extrabold transition-all hover:-translate-y-0.5 shadow-xs"
                     >
                       {proj.iconType === 'pill' && <Pill className="w-3.5 h-3.5" />}
+                      {proj.iconType === 'cart' && <ShoppingBag className="w-3.5 h-3.5" />}
                       {proj.iconType === 'youtube' && <Youtube className="w-3.5 h-3.5" />}
                       {proj.iconType === 'camera' && <Camera className="w-3.5 h-3.5" />}
-                      {!['pill', 'youtube', 'camera'].includes(proj.iconType || '') && <ExternalLink className="w-3.5 h-3.5" />}
+                      {!['pill', 'cart', 'youtube', 'camera'].includes(proj.iconType || '') && <ExternalLink className="w-3.5 h-3.5" />}
                       <span>{proj.actionLabel || 'View Live Project →'}</span>
                     </a>
                     <div className="text-right">
@@ -288,9 +289,10 @@ export const ProjectsPage: React.FC = () => {
                     className="inline-flex items-center gap-1.5 bg-[#ffbd20] hover:bg-[#f4a900] text-[#111] px-4 py-2 rounded text-xs font-extrabold transition-all shadow-xs"
                   >
                     {selectedProject.iconType === 'pill' && <Pill className="w-3.5 h-3.5" />}
+                    {selectedProject.iconType === 'cart' && <ShoppingBag className="w-3.5 h-3.5" />}
                     {selectedProject.iconType === 'youtube' && <Youtube className="w-3.5 h-3.5" />}
                     {selectedProject.iconType === 'camera' && <Camera className="w-3.5 h-3.5" />}
-                    {!['pill', 'youtube', 'camera'].includes(selectedProject.iconType || '') && <ExternalLink className="w-3.5 h-3.5" />}
+                    {!['pill', 'cart', 'youtube', 'camera'].includes(selectedProject.iconType || '') && <ExternalLink className="w-3.5 h-3.5" />}
                     <span>{selectedProject.actionLabel || 'View Live Project →'}</span>
                   </a>
                 )}

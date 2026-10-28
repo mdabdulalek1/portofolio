@@ -1,7 +1,7 @@
 import React from 'react';
 import { PageType } from '../types/portfolio';
 import { creativeProjects, technicalSkillsMatrix, socialProfiles } from '../data/portfolioData';
-import { Globe, Server, Cpu, ArrowUpRight, CheckCircle2, Code2, Database, Brain, Facebook, Instagram, Youtube, Mail, Pill, Camera, ExternalLink } from 'lucide-react';
+import { Globe, Server, Cpu, ArrowUpRight, CheckCircle2, Code2, Database, Brain, Facebook, Instagram, Youtube, Mail, Pill, Camera, ExternalLink, ShoppingBag } from 'lucide-react';
 
 interface HomePageProps {
   onNavigate: (page: PageType) => void;
@@ -22,45 +22,45 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
         />
 
         <div className="w-[min(1180px,92%)] mx-auto relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-8 lg:gap-6 items-center min-h-[480px]">
+          <div className="grid grid-cols-[1.15fr_0.85fr] sm:grid-cols-[1.1fr_0.9fr] lg:grid-cols-[1.05fr_0.95fr] gap-3 sm:gap-6 lg:gap-8 items-center min-h-[380px] sm:min-h-[460px] lg:min-h-[480px]">
             {/* Left Column: Name & Positioning */}
-            <div className="space-y-4 pt-2">
-              <div className="font-script text-[#FFBD20] sm:text-[#D99A00] text-3xl sm:text-[38px] leading-tight select-none font-bold">
+            <div className="space-y-2.5 sm:space-y-4 pt-1 sm:pt-2">
+              <div className="font-script text-[#FFBD20] sm:text-[#D99A00] text-2xl sm:text-3xl lg:text-[38px] leading-tight select-none font-bold">
                 Hi, I'm
               </div>
 
               {/* MD. ABDUL ALEK - Shown strictly once in the hero */}
-              <h1 className="font-display uppercase text-5xl sm:text-6xl md:text-7xl lg:text-[86px] leading-[0.95] tracking-[-1.5px] text-[#171717] m-0 font-bold">
+              <h1 className="font-display uppercase text-3xl sm:text-5xl md:text-6xl lg:text-[84px] leading-[0.95] tracking-[-1px] sm:tracking-[-1.5px] text-[#171717] m-0 font-bold">
                 MD. ABDUL<br />ALEK
               </h1>
 
               {/* Role pill badge */}
-              <div className="pt-1">
-                <span className="inline-block bg-[#FFBD20] text-[#171717] px-3.5 py-1.5 text-[11px] font-extrabold uppercase tracking-[0.6px] rounded-[4px] shadow-xs">
+              <div className="pt-0.5 sm:pt-1">
+                <span className="inline-block bg-[#FFBD20] text-[#171717] px-2.5 py-1 sm:px-3.5 sm:py-1.5 text-[9px] sm:text-[11px] font-extrabold uppercase tracking-[0.5px] sm:tracking-[0.6px] rounded-[4px] shadow-xs">
                   WEB DEVELOPER | IT TECHNOLOGIST
                 </span>
               </div>
 
               {/* Headline */}
-              <h2 className="text-xl sm:text-[23px] font-bold tracking-tight text-[#171717] leading-snug pt-1 m-0">
+              <h2 className="text-xs sm:text-lg md:text-xl lg:text-[23px] font-bold tracking-tight text-[#171717] leading-snug pt-0.5 sm:pt-1 m-0">
                 I Build <span className="text-[#D99A00]">Digital Solutions.</span><br />
                 I Engineer <span className="text-[#D99A00]">Possibilities.</span>
               </h2>
 
               {/* Introduction Paragraph */}
-              <p className="text-xs sm:text-[13px] text-[#686868] leading-[1.9] max-w-[480px] m-0">
+              <p className="text-[11px] sm:text-xs md:text-[13px] text-[#686868] leading-[1.6] sm:leading-[1.9] max-w-[480px] m-0">
                 I'm Md. Abdul Alek, a Computer Engineering graduate. I build responsive websites, create practical digital experiences, and handle the technical infrastructure that brings them online.
               </p>
 
               {/* Action Buttons */}
-              <div className="flex flex-wrap items-center gap-3 pt-2">
+              <div className="flex flex-wrap items-center gap-2 sm:gap-3 pt-1 sm:pt-2">
                 <button
                   type="button"
                   onClick={() => {
                     onNavigate('projects');
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                   }}
-                  className="bg-[#FFBD20] hover:bg-[#F4A900] text-[#171717] px-6 py-3.5 rounded-[6px] text-xs font-extrabold transition-all hover:-translate-y-0.5 border-0 cursor-pointer shadow-xs"
+                  className="bg-[#FFBD20] hover:bg-[#F4A900] text-[#171717] px-3.5 py-2 sm:px-6 sm:py-3.5 rounded-[5px] sm:rounded-[6px] text-[10px] sm:text-xs font-extrabold transition-all hover:-translate-y-0.5 border-0 cursor-pointer shadow-xs"
                 >
                   EXPLORE MY WORK ↗
                 </button>
@@ -71,69 +71,69 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                     onNavigate('contact');
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                   }}
-                  className="bg-transparent hover:bg-white text-[#171717] border border-[#DEDBD4] px-6 py-3.5 rounded-[6px] text-xs font-extrabold transition-all hover:-translate-y-0.5 cursor-pointer"
+                  className="bg-transparent hover:bg-white text-[#171717] border border-[#DEDBD4] px-3.5 py-2 sm:px-6 sm:py-3.5 rounded-[5px] sm:rounded-[6px] text-[10px] sm:text-xs font-extrabold transition-all hover:-translate-y-0.5 cursor-pointer"
                 >
                   LET'S CONNECT
                 </button>
               </div>
 
               {/* Social Channels & Connect Tag */}
-              <div className="flex items-center gap-3 pt-3">
+              <div className="flex items-center gap-1.5 sm:gap-3 pt-1.5 sm:pt-3">
                 <a
                   href={socialProfiles.facebook.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-[36px] h-[36px] rounded-full bg-[#171717] text-white hover:bg-[#FFBD20] hover:text-[#171717] flex items-center justify-center transition-all hover:-translate-y-0.5 text-xs font-bold"
+                  className="w-[30px] h-[30px] sm:w-[36px] sm:h-[36px] rounded-full bg-[#171717] text-white hover:bg-[#FFBD20] hover:text-[#171717] flex items-center justify-center transition-all hover:-translate-y-0.5 text-xs font-bold"
                   aria-label="Facebook: @mdabdulalek2"
                   title="Facebook (@mdabdulalek2)"
                 >
-                  <Facebook className="w-4 h-4" />
+                  <Facebook className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 </a>
 
                 <a
                   href={socialProfiles.instagram.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-[36px] h-[36px] rounded-full bg-[#171717] text-white hover:bg-[#FFBD20] hover:text-[#171717] flex items-center justify-center transition-all hover:-translate-y-0.5 text-xs font-bold"
+                  className="w-[30px] h-[30px] sm:w-[36px] sm:h-[36px] rounded-full bg-[#171717] text-white hover:bg-[#FFBD20] hover:text-[#171717] flex items-center justify-center transition-all hover:-translate-y-0.5 text-xs font-bold"
                   aria-label="Instagram: @mdabdulalek2"
                   title="Instagram (@mdabdulalek2)"
                 >
-                  <Instagram className="w-4 h-4" />
+                  <Instagram className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 </a>
 
                 <a
                   href={socialProfiles.youtube.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-[36px] h-[36px] rounded-full bg-[#171717] text-white hover:bg-[#FFBD20] hover:text-[#171717] flex items-center justify-center transition-all hover:-translate-y-0.5 text-xs font-bold"
+                  className="w-[30px] h-[30px] sm:w-[36px] sm:h-[36px] rounded-full bg-[#171717] text-white hover:bg-[#FFBD20] hover:text-[#171717] flex items-center justify-center transition-all hover:-translate-y-0.5 text-xs font-bold"
                   aria-label="YouTube: @mdabdulalek2"
                   title="YouTube (@mdabdulalek2)"
                 >
-                  <Youtube className="w-4 h-4" />
+                  <Youtube className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 </a>
 
                 <a
                   href={socialProfiles.email.url}
-                  className="w-[36px] h-[36px] rounded-full bg-[#171717] text-white hover:bg-[#FFBD20] hover:text-[#171717] flex items-center justify-center transition-all hover:-translate-y-0.5 text-xs font-bold"
+                  className="w-[30px] h-[30px] sm:w-[36px] sm:h-[36px] rounded-full bg-[#171717] text-white hover:bg-[#FFBD20] hover:text-[#171717] flex items-center justify-center transition-all hover:-translate-y-0.5 text-xs font-bold"
                   aria-label="Email Md. Abdul Alek"
                   title="Email: alek25860@gmail.com"
                 >
-                  <Mail className="w-4 h-4" />
+                  <Mail className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 </a>
 
-                <div className="border-l border-[#DEDBD4] pl-3 text-[11px] font-bold text-[#686868] leading-tight">
+                <div className="border-l border-[#DEDBD4] pl-2 sm:pl-3 text-[9px] sm:text-[11px] font-bold text-[#686868] leading-tight">
                   Let's Connect<br /><span className="text-[#171717]">&amp; Create</span>
                 </div>
               </div>
             </div>
 
-            {/* Right Column: Seamless Portrait (NO rectangular border, NO white card, NO rounded frame, NO shadow box, NO duplicate badge) */}
+            {/* Right Column: Seamless Portrait on the SIDE */}
             <div className="relative flex justify-center items-center select-none">
-              <div className="relative w-full max-w-[540px] lg:max-w-[580px] flex items-center justify-center">
+              <div className="relative w-full max-w-[420px] sm:max-w-[500px] lg:max-w-[580px] flex items-center justify-center">
                 <img
                   src="/assets/aistudio/alek_transparent.png"
                   alt="Md. Abdul Alek"
-                  className="w-full h-auto max-h-[560px] object-contain drop-shadow-none"
+                  className="w-full h-auto max-h-[360px] sm:max-h-[480px] lg:max-h-[560px] object-contain drop-shadow-none"
                   style={{
                     WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%)',
                     maskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%)',
@@ -434,9 +434,10 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                     className="inline-flex items-center justify-center gap-1.5 w-full bg-[#FFBD20] hover:bg-[#F4A900] text-[#171717] px-3.5 py-2.5 rounded-[5px] text-[11px] font-extrabold transition-all hover:-translate-y-0.5 shadow-xs"
                   >
                     {proj.iconType === 'pill' && <Pill className="w-3.5 h-3.5" />}
+                    {proj.iconType === 'cart' && <ShoppingBag className="w-3.5 h-3.5" />}
                     {proj.iconType === 'youtube' && <Youtube className="w-3.5 h-3.5" />}
                     {proj.iconType === 'camera' && <Camera className="w-3.5 h-3.5" />}
-                    {!['pill', 'youtube', 'camera'].includes(proj.iconType || '') && <ExternalLink className="w-3.5 h-3.5" />}
+                    {!['pill', 'cart', 'youtube', 'camera'].includes(proj.iconType || '') && <ExternalLink className="w-3.5 h-3.5" />}
                     <span>{proj.actionLabel || 'View Live Project →'}</span>
                   </a>
                 ) : (
