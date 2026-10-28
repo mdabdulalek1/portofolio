@@ -328,21 +328,81 @@ if (copyDraftBtn && inquiryForm) {
 }
 
 if (inquiryForm) {
-  inquiryForm.addEventListener('submit', (e) => {
+  inquiryForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     if (!inquiryForm.reportValidity()) return;
 
     const data = new FormData(inquiryForm);
-    const subject = `Project Inquiry — ${data.get('service')}`;
-    const body = getDraftBody();
-    const mailto = `mailto:alek25860@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-    if (formStatus) {
-      formStatus.textContent = 'Your email application is opening with your formatted message. If nothing opens, send directly to alek25860@gmail.com.';
-      formStatus.classList.add('visible');
+    const honey = data.get('_honey') || '';
+    if (honey) {
+      if (formStatus) {
+        formStatus.textContent = 'Thank you! Your message has been sent directly to alek25860@gmail.com.';
+        formStatus.className = 'form-status-msg visible success';
+      }
+      inquiryForm.reset();
+      return;
     }
 
-    window.location.href = mailto;
+    const submitBtn = inquiryForm.querySelector('#submitInquiryBtn') || inquiryForm.querySelector('button[type="submit"]');
+    const originalBtnText = submitBtn ? submitBtn.innerHTML : 'SEND INQUIRY ↗';
+
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = 'Sending Inquiry...';
+    }
+
+    if (formStatus) {
+      formStatus.textContent = 'Submitting your inquiry...';
+      formStatus.className = 'form-status-msg visible';
+    }
+
+    try {
+      const payload = {
+        name: data.get('name'),
+        email: data.get('email'),
+        _replyto: data.get('email'),
+        service: data.get('service'),
+        message: data.get('details'),
+        _subject: `New Project Inquiry from ${data.get('name')} (${data.get('service')}) — ALEK.DEV`,
+        _template: 'table',
+        _captcha: 'false'
+      };
+
+      const res = await fetch('https://formsubmit.co/ajax/alek25860@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+
+      const resData = await res.json();
+
+      if (res.ok || resData.success === 'true' || resData.success === true) {
+        if (formStatus) {
+          formStatus.textContent = '✓ Message delivered directly to Md. Abdul Alek (alek25860@gmail.com)! We will review your project and reply shortly.';
+          formStatus.className = 'form-status-msg visible success';
+        }
+        inquiryForm.reset();
+      } else {
+        throw new Error(resData.message || 'Service returned an error');
+      }
+    } catch (err) {
+      const subject = `Project Inquiry — ${data.get('service')}`;
+      const body = getDraftBody();
+      const mailto = `mailto:alek25860@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+      if (formStatus) {
+        formStatus.innerHTML = `Direct dispatch could not complete. <a href="${mailto}" style="color:#d99a00;text-decoration:underline;font-weight:bold;">Click here to open your email client</a> or send directly to alek25860@gmail.com.`;
+        formStatus.className = 'form-status-msg visible';
+      }
+    } finally {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnText;
+      }
+    }
   });
 }
 

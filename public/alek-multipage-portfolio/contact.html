@@ -96,13 +96,16 @@
 
   <!-- Form Container -->
   <div class="form-wrapper">
-    <div class="eyebrow">PROJECT INQUIRY FORM</div>
+    <div class="eyebrow">DIRECT PROJECT INQUIRY</div>
     <h2 class="section-title">TELL ME ABOUT YOUR PROJECT</h2>
     <p class="form-note">
-      Fill in the details below. This static website does not silently store submissions in a database; clicking "Prepare Email Inquiry" prepares a message directly in your email client for full transparency.
+      Fill in the details below. I will review your requirements and respond to your inquiry promptly.
     </p>
 
     <form id="inquiryForm" class="contact-form">
+      <!-- Anti-bot honeypot -->
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
       <div class="form-row">
         <div class="form-group">
           <label for="clientName">Your Full Name *</label>
@@ -132,7 +135,7 @@
       </div>
 
       <div class="form-actions">
-        <button type="submit" class="primary">PREPARE EMAIL INQUIRY ↗</button>
+        <button type="submit" class="primary" id="submitInquiryBtn">SEND INQUIRY ↗</button>
         <button type="button" class="secondary" id="copyDraftBtn">Copy Formatted Draft</button>
       </div>
 
