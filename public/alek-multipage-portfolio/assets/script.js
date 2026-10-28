@@ -345,3 +345,27 @@ if (inquiryForm) {
     window.location.href = mailto;
   });
 }
+
+// Floating Scroll-To-Top Button
+(function() {
+  const btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'scroll-to-top';
+  btn.setAttribute('aria-label', 'Scroll to top');
+  btn.setAttribute('title', 'Go to top');
+  btn.innerHTML = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>`;
+  document.body.appendChild(btn);
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  }, { passive: true });
+
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+

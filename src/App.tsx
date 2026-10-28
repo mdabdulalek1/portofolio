@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { PageType } from './types/portfolio';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
+import { ScrollToTop } from './components/ScrollToTop';
 import { HomePage } from './pages/HomePage';
 import { ServicesPage } from './pages/ServicesPage';
 import { ProjectsPage } from './pages/ProjectsPage';
@@ -49,6 +50,9 @@ export default function App() {
 
       {/* Shared Footer */}
       <Footer />
+
+      {/* Floating Scroll to Top Option */}
+      <ScrollToTop />
     </div>
   );
 }

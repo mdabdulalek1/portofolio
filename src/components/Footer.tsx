@@ -1,5 +1,5 @@
 import React from 'react';
-import { Download, Facebook, Instagram, Youtube, Mail } from 'lucide-react';
+import { Facebook, Instagram, Youtube, Mail } from 'lucide-react';
 import { socialProfiles } from '../data/portfolioData';
 
 export const Footer: React.FC = () => {
@@ -60,17 +60,6 @@ export const Footer: React.FC = () => {
 
         <div className="text-[10px] text-[#777777] pt-1">
           © {currentYear} Md. Abdul Alek. Web Developer &amp; Digital Solutions Technologist · Tongi, Gazipur, Bangladesh
-        </div>
-
-        <div className="pt-2">
-          <a
-            href="/alek-dev-portfolio.zip"
-            download="alek-dev-portfolio.zip"
-            className="inline-flex items-center gap-1.5 text-[10px] font-bold text-[#666] hover:text-[#d99a00] border border-[#dedbd4] hover:border-[#d99a00] bg-white px-3 py-1.5 rounded transition-colors"
-          >
-            <Download className="w-3 h-3 text-[#d99a00]" />
-            <span>Download Website Package (.ZIP)</span>
-          </a>
         </div>
       </div>
     </footer>

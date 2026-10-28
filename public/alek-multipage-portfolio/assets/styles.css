@@ -1316,3 +1316,53 @@ footer {
   .cat-head { flex-direction: column; }
   .page-title { font-size: 38px; }
 }
+
+/* SCROLL TO TOP FLOATING BUTTON */
+.scroll-to-top {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: #ffffff;
+  border: 1px solid rgba(222, 219, 212, 0.4);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.scroll-to-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.scroll-to-top:hover {
+  background: var(--yellow);
+  color: var(--ink);
+  border-color: var(--yellow);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(255, 189, 32, 0.3);
+}
+.scroll-to-top svg {
+  transition: transform 0.2s ease;
+}
+.scroll-to-top:hover svg {
+  transform: translateY(-2px);
+}
+@media (max-width: 640px) {
+  .scroll-to-top {
+    bottom: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+  }
+}
+
